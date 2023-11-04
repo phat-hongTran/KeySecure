@@ -1,0 +1,115 @@
+﻿<Window x:Class="KeySecure.SecureKeyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KeySecure"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Secure Key"
+        Height="400"
+        Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <!--BASE-->
+        <TextBlock x:Name="lblEncryption"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+                   Text="ENCRYPTION PAGE"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="25" />
+        <TextBlock x:Name="lblDecryption"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+                   Text="DECRYPTION PAGE"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="25"
+                   Visibility="Hidden" />
+        <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}"
+                      ToolTip="Change to Encrypt or Decrypt"
+                      IsChecked="False"
+                      Width="80"
+                      Grid.Row="1"
+                      Grid.Column="1" />
+        <PasswordBox x:Name="PasswordBox"
+                     materialDesign:HintAssist.Hint="Input your password here!"
+                     Grid.Row="2"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     HorizontalContentAlignment="Center"
+                     FontSize="18"
+                     Margin="50 20 50 20" />
+        <TextBox x:Name="CommentTextBox"
+                 materialDesign:HintAssist.Hint="Add secure key"
+                 Grid.Row="3"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="3"
+                 FontSize="17"
+                 Margin="130 0 130 10"
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center" />
+        <Button Grid.Row="3"
+                Grid.Column="2"
+                Width="45"
+                Height="30"
+                HorizontalAlignment="Left"
+                Background="ForestGreen"
+                BorderBrush="Transparent"
+                Margin="10 0 0 0">
+            <materialDesign:PackIcon Kind="Plus"
+                                     Grid.Row="3"
+                                     Grid.Column="2"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center"
+                                     Width="25"
+                                     Height="25" />
+        </Button>
+        <TextBox x:Name="txtSeureKey2"
+                 materialDesign:HintAssist.Hint="Add secure key"
+                 Grid.Row="4"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="3"
+                 FontSize="17"
+                 Margin="130 0 130 10"
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center" />
+        <TextBox x:Name="txtSeureKey3"
+                 materialDesign:HintAssist.Hint="Add secure key"
+                 Grid.Row="5"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="3"
+                 FontSize="17"
+                 Margin="130 0 130 10"
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center" />
+        <Button x:Name="btnEncryption"
+                Content="Encryption"
+                Grid.Row="6"
+                Grid.Column="1"
+                Background="DarkGreen" />
+    </Grid>
+</Window>
