@@ -6,37 +6,17 @@ using System.Threading.Tasks;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
+using System.ComponentModel;
 
 namespace KeySecure.ViewModels
 {
-    public class ViewModelBase
+    public class ViewModelBase : INotifyPropertyChanged
     {
-        public class ToggleButtonVisibilityConverter : IValueConverter
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void RaisePropertyChanged(string propertyName)
         {
-            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-            {
-                bool isChecked = (bool)value;
-                return isChecked ? Visibility.Collapsed : Visibility.Visible;
-            }
-
-            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-            {
-                throw new NotSupportedException();
-            }
-        }
-
-        public class ToggleButtonInverseVisibilityConverter : IValueConverter
-        {
-            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-            {
-                bool isChecked = (bool)value;
-                return isChecked ? Visibility.Visible : Visibility.Collapsed;
-            }
-
-            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-            {
-                throw new NotSupportedException();
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

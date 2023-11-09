@@ -27,3 +27,30 @@ D:\HUY\7.NET C SHARP\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.xml
 D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\App.baml
 D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\KeySecure.csproj.CopyComplete
 D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\KeySecure.exe.config
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\KeySecure.exe
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\KeySecure.pdb
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\MaterialDesignColors.dll
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\MaterialDesignColors.pdb
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.csproj.AssemblyReference.cache
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\MainWindow.g.cs
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\Views\KeySecureWindow.g.cs
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\App.g.cs
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure_MarkupCompile.cache
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure_MarkupCompile.lref
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\App.baml
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\MainWindow.baml
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\Views\KeySecureWindow.baml
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.g.resources
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.Properties.Resources.resources
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.csproj.GenerateResource.cache
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.csproj.CoreCompileInputs.cache
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.csproj.CopyComplete
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.exe
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.pdb
