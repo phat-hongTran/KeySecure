@@ -30,6 +30,7 @@ namespace KeySecure.ViewModels
                 isDecrypt = value; 
 				RaisePropertyChanged(nameof(IsDecrypt));
 				UpdateTitle(value);
+                UpdateHint(value);
 			}
 		}
 
@@ -42,5 +43,25 @@ namespace KeySecure.ViewModels
         {
 			IsDecrypt = false;
         }
+
+        #region Update Hint in main textbox
+        private string _PassWordBoxHint;
+        private const string encryptHint= "Input your password here!";
+        private const string decryptHint= "Input your encrypt string here!";
+
+        public string PassWordBoxHint
+        {
+            get { return _PassWordBoxHint; }
+            set 
+            { 
+                _PassWordBoxHint = value;
+                RaisePropertyChanged(nameof(PassWordBoxHint));
+            }
+        }
+        private void UpdateHint (bool isDecrypt)
+        {
+            PassWordBoxHint = isDecrypt ? decryptHint : encryptHint;
+        }
+        #endregion
     }
 }

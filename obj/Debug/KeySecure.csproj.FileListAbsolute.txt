@@ -54,3 +54,31 @@ D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.csproj
 D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.csproj.CopyComplete
 D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.exe
 D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.pdb
+D:\HUY\KeySecure\bin\Debug\KeySecure.exe.config
+D:\HUY\KeySecure\bin\Debug\KeySecure.exe
+D:\HUY\KeySecure\bin\Debug\KeySecure.pdb
+D:\HUY\KeySecure\bin\Debug\MaterialDesignColors.dll
+D:\HUY\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\HUY\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\HUY\KeySecure\bin\Debug\MaterialDesignColors.pdb
+D:\HUY\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\HUY\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\HUY\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\HUY\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\HUY\KeySecure\obj\Debug\KeySecure.csproj.AssemblyReference.cache
+D:\HUY\KeySecure\obj\Debug\KeySecure.csproj.SuggestedBindingRedirects.cache
+D:\HUY\KeySecure\obj\Debug\MainWindow.g.cs
+D:\HUY\KeySecure\obj\Debug\Views\KeySecureWindow.g.cs
+D:\HUY\KeySecure\obj\Debug\App.g.cs
+D:\HUY\KeySecure\obj\Debug\KeySecure_MarkupCompile.cache
+D:\HUY\KeySecure\obj\Debug\KeySecure_MarkupCompile.lref
+D:\HUY\KeySecure\obj\Debug\App.baml
+D:\HUY\KeySecure\obj\Debug\MainWindow.baml
+D:\HUY\KeySecure\obj\Debug\Views\KeySecureWindow.baml
+D:\HUY\KeySecure\obj\Debug\KeySecure.g.resources
+D:\HUY\KeySecure\obj\Debug\KeySecure.Properties.Resources.resources
+D:\HUY\KeySecure\obj\Debug\KeySecure.csproj.GenerateResource.cache
+D:\HUY\KeySecure\obj\Debug\KeySecure.csproj.CoreCompileInputs.cache
+D:\HUY\KeySecure\obj\Debug\KeySecure.csproj.CopyComplete
+D:\HUY\KeySecure\obj\Debug\KeySecure.exe
+D:\HUY\KeySecure\obj\Debug\KeySecure.pdb

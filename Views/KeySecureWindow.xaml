@@ -42,11 +42,11 @@
         <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}"
                       ToolTip="Change to Encrypt or Decrypt"
                       IsChecked="{Binding IsDecrypt, UpdateSourceTrigger=PropertyChanged}"
-                      Width="80"
+                      Width="50"
                       Grid.Row="1"
                       Grid.Column="1" />
         <PasswordBox x:Name="PasswordBox"
-                     materialDesign:HintAssist.Hint="Input your password here!"
+                     materialDesign:HintAssist.Hint="{Binding PassWordBoxHint, UpdateSourceTrigger=PropertyChanged}"
                      Grid.Row="2"
                      Grid.Column="0"
                      Grid.ColumnSpan="3"
