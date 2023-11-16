@@ -7,15 +7,28 @@ using System.Windows.Input;
 
 namespace KeySecure.ViewModels
 {
-    public class RelayCommand : ICommand
+    public class RelayCommand<T> : ICommand
     {
-        private readonly Action _execute;
-        private readonly Func<bool> _canExecute;
+        readonly Action<T> _execute = null;
+        readonly Predicate<T> _canExecute = null;
 
-        public RelayCommand(Action execute, Func<bool> canExecute = null)
+        public RelayCommand(Action<T> execute)
+            : this(execute, null)
         {
-            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+        }
+
+        public RelayCommand(Action<T> execute, Predicate<T> canExecute)
+        {
+            if (execute == null)
+                throw new ArgumentNullException("execute");
+
+            _execute = execute;
             _canExecute = canExecute;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return _canExecute == null ? true : _canExecute((T)parameter);
         }
 
         public event EventHandler CanExecuteChanged
@@ -23,22 +36,10 @@ namespace KeySecure.ViewModels
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
-        public void RaiseCanExecuteChanged()
-        {
-            EventHandler canExecuteChanged = this.CanExecuteChanged;
-            if (canExecuteChanged != null)
-            {
-                canExecuteChanged.Invoke(this, EventArgs.Empty);
-            }
-        }
-        public bool CanExecute(object parameter)
-        {
-            return _canExecute?.Invoke() ?? true;
-        }
 
         public void Execute(object parameter)
         {
-            _execute();
+            _execute((T)parameter);
         }
     }
 }
