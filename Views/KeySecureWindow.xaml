@@ -56,35 +56,54 @@
         <StackPanel Orientation="Vertical"
                     Grid.Row="3"
                     Grid.Column="1" HorizontalAlignment="Center">
-            <TextBox x:Name="txtAddSecureKey"
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="txtAddSecureKey1"
+                         Grid.Row="0"
                      materialDesign:HintAssist.Hint="Add secure key"
                      FontSize="17"
                      VerticalContentAlignment="Center"
                      HorizontalContentAlignment="Center"
                      Margin="0 5 0 5" />
-            <ItemsControl ItemsSource="{Binding SercureKeyCollection}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <TextBox x:Name="txtAddSecureKey"
-                                 materialDesign:HintAssist.Hint="{Binding Path=.}"
-                                 FontSize="17"
-                                 VerticalContentAlignment="Center"
-                                 HorizontalContentAlignment="Center" 
-                                 Margin="0 5 0 5"/>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                <TextBox x:Name="txtAddSecureKey2"
+                         Grid.Row="1"
+                     materialDesign:HintAssist.Hint="Add secure key"
+                     FontSize="17"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     Margin="0 5 0 5" 
+                     Visibility="{Binding TextBox1Visibility}"/>
+                <TextBox x:Name="txtAddSecureKey3"
+                         Grid.Row="2"
+                     materialDesign:HintAssist.Hint="Add secure key"
+                     FontSize="17"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     Margin="0 5 0 5" 
+                     Visibility="{Binding TextBox2Visibility}"/>
+                <Button x:Name="btnEncryption"
+                        Content="Encryption"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Background="DarkGreen" />
+            </Grid>
         </StackPanel>
         <Button Grid.Row="3"
                 Grid.Column="2"
                 Width="45"
                 Height="25"
                 HorizontalAlignment="Left"
+                VerticalAlignment="Top"
                 Background="ForestGreen"
                 BorderBrush="Transparent"
-                Margin="10 0 0 0"
+                Margin="10 10 0 0"
                 x:Name="btnAddSecureKey"
-                Command="{Binding AddSecureKey}">
+                Command="{Binding ToggleVisibilityCommand}">
             <materialDesign:PackIcon Kind="Plus"
                                      Grid.Row="3"
                                      Grid.Column="2"
@@ -93,10 +112,6 @@
                                      Width="25"
                                      Height="25" />
         </Button>
-        <Button x:Name="btnEncryption"
-                Content="Encryption"
-                Grid.Row="6"
-                Grid.Column="1"
-                Background="DarkGreen" />
+
     </Grid>
 </Window>
