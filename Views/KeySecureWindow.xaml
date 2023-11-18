@@ -50,7 +50,8 @@
                          Grid.ColumnSpan="3"
                          HorizontalContentAlignment="Center"
                          FontSize="18"
-                         Margin="50 20 50 20" />
+                         Margin="50 20 50 20" 
+                         />
             <StackPanel Orientation="Vertical"
                         Grid.Row="3"
                         Grid.Column="1"
@@ -90,7 +91,7 @@
                             Grid.Row="3"
                             Grid.Column="1"
                             Background="DarkGreen"
-                            Command="{Binding OpenWindow2Command}"/>
+                            Command="{Binding EncryptCommand}"/>
                 </Grid>
             </StackPanel>
             <Button Grid.Row="3"
@@ -99,7 +100,7 @@
                     Height="25"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Background="ForestGreen"
+                    Background="{Binding ColorAdd}"
                     BorderBrush="Transparent"
                     Margin="10 10 0 0"
                     x:Name="btnAddSecureKey"

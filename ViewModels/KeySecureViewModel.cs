@@ -9,6 +9,7 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using System.Windows;
 using KeySecure.Views;
+using System.Security.Cryptography;
 
 namespace KeySecure.ViewModels
 {
@@ -18,6 +19,7 @@ namespace KeySecure.ViewModels
         {
             //Change content
             IsDecrypt = false;
+            ColorAdd = "ForestGreen";
             //Add textbox
             SercureKeyCollection = new ObservableCollection<string>();
             AddSecureKey = new RelayCommand<object>(CommandAddSecureKey);
@@ -29,6 +31,8 @@ namespace KeySecure.ViewModels
 
             //Show Dialog result
             OpenWindow2Command = new RelayCommand(OpenWindow2);
+            //Show Result
+            EncryptCommand = new RelayCommand(Encrypt);
         }
 
         #region Update Titel
@@ -133,9 +137,7 @@ namespace KeySecure.ViewModels
             }
         }
         private void ToggleVisibility(object parameter)
-        {
-
-            //TextBoxVisibility1 = (TextBoxVisibility1 == Visibility.Visible) ? Visibility.Hidden : Visibility.Visible;
+        {           
             if (TextBox1Visibility == Visibility.Collapsed)
             {
                 TextBox1Visibility = Visibility.Visible;
@@ -143,9 +145,9 @@ namespace KeySecure.ViewModels
             else if (TextBox2Visibility == Visibility.Collapsed)
             {
                 TextBox2Visibility = Visibility.Visible;
+                ColorAdd = "Gray";
             }
         }
-
         #endregion
         #region Show Dialog result
         public ICommand OpenWindow2Command { get; }
@@ -155,6 +157,75 @@ namespace KeySecure.ViewModels
             EncryptResultViewModel viewModel2 = new EncryptResultViewModel();
             window2.DataContext = viewModel2;
             window2.Show();
+        }
+        #endregion
+        #region Logic Encryption
+        private string _inputText1;
+        private string _inputText2;
+        private string _inputText3;
+        private string _encryptedText;
+
+        public string InputText1
+        {
+            get { return _inputText1; }
+            set
+            {
+                _inputText1 = value;
+                RaisePropertyChanged(nameof(InputText1));
+            }
+        }
+        public string InputText2
+        {
+            get { return _inputText2; }
+            set
+            {
+                _inputText2 = value;
+                RaisePropertyChanged(nameof(InputText2));
+            }
+        }
+        public string InputText3
+        {
+            get { return _inputText3; }
+            set
+            {
+                _inputText3 = value;
+                RaisePropertyChanged(nameof(InputText3));
+            }
+        }
+        public string EncryptedText
+        {
+            get { return _encryptedText; }
+            set
+            {
+                _encryptedText = value;
+                RaisePropertyChanged(nameof(EncryptedText));
+            }
+        }
+
+        public ICommand EncryptCommand { get; }
+        private void Encrypt()
+        {
+            string encryptedText = EncryptString(InputText1, InputText2, InputText3);
+            EncryptedText = encryptedText;
+            //Binding to Result Window
+            EncryptResultViewModel resultViewModel = new EncryptResultViewModel();
+            resultViewModel.EncryptedText = encryptedText;
+            EncryptResultWindow encryptResultWindow = new EncryptResultWindow();
+            encryptResultWindow.DataContext = resultViewModel;
+            encryptResultWindow.Show();
+        }
+        MD5 md = MD5.Create();
+        private string EncryptString (string input1, string input2, string input3)
+        {
+            string concatenatedString = input1 + input2 + input3;        
+            byte[] inputString = System.Text.Encoding.ASCII.GetBytes(concatenatedString);
+            byte[] hash = md.ComputeHash(inputString);
+            StringBuilder encryptedString = new StringBuilder();
+            for(int i = 0; i< hash.Length; i++)
+            {
+                encryptedString.Append(hash[i].ToString("X2"));
+            }
+            return encryptedString.ToString();           
         }
         #endregion
     }

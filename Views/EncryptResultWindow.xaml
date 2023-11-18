@@ -26,12 +26,16 @@
                    Grid.Row="0"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
-                   Background="LightGreen" Padding="10"/>
-        <TextBox Grid.Row="1" Margin="15" IsReadOnly="True"/>
+                   Background="LightGreen"
+                   Padding="10" />
+        <TextBox Grid.Row="1"
+                 Margin="15"
+                 IsReadOnly="True"
+                 Text="{Binding EncryptedText}"/>
         <Button x:Name="btnEncryption"
                 Content="Copy"
                 Grid.Row="2"
-                Background="DarkGreen" 
-                Width="80"/>
+                Background="DarkGreen"
+                Width="80" />
     </Grid>
 </Window>

@@ -8,12 +8,18 @@ namespace KeySecure.ViewModels
 {
     public class EncryptResultViewModel: ViewModelBase
     {
-        public EncryptResultViewModel()
-        {
 
+        #region Show Result Dailog
+        private string _encryptedText;
+        public string EncryptedText
+        {
+            get { return _encryptedText; }
+            set
+            {
+                _encryptedText = value;
+                RaisePropertyChanged(nameof(EncryptedText));
+            }
         }
-        #region Show Dailog
-            
         #endregion
 
     }
