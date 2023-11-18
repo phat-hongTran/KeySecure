@@ -14,104 +14,104 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Key Secure"
-        Height="350"
+        Height="330"
         Width="400">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <!--BASE-->
-        <TextBlock Grid.Row="0"
-                   Grid.Column="0"
-                   Grid.ColumnSpan="3"
-                   Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="25" />
-        <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}"
-                      ToolTip="Change to Encrypt or Decrypt"
-                      IsChecked="{Binding IsDecrypt, UpdateSourceTrigger=PropertyChanged}"
-                      Width="50"
-                      Grid.Row="1"
-                      Grid.Column="1" />
-        <PasswordBox x:Name="PasswordBox"
-                     materialDesign:HintAssist.Hint="{Binding PassWordBoxHint, UpdateSourceTrigger=PropertyChanged}"
-                     Grid.Row="2"
-                     Grid.Column="0"
-                     Grid.ColumnSpan="3"
-                     HorizontalContentAlignment="Center"
-                     FontSize="18"
-                     Margin="50 20 50 20" />
-        <StackPanel Orientation="Vertical"
-                    Grid.Row="3"
-                    Grid.Column="1" HorizontalAlignment="Center">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <TextBox x:Name="txtAddSecureKey1"
-                         Grid.Row="0"
-                     materialDesign:HintAssist.Hint="Add secure key"
-                     FontSize="17"
-                     VerticalContentAlignment="Center"
-                     HorizontalContentAlignment="Center"
-                     Margin="0 5 0 5" />
-                <TextBox x:Name="txtAddSecureKey2"
-                         Grid.Row="1"
-                     materialDesign:HintAssist.Hint="Add secure key"
-                     FontSize="17"
-                     VerticalContentAlignment="Center"
-                     HorizontalContentAlignment="Center"
-                     Margin="0 5 0 5" 
-                     Visibility="{Binding TextBox1Visibility}"/>
-                <TextBox x:Name="txtAddSecureKey3"
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <!--BASE-->
+            <TextBlock Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="3"
+                       Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="25" />
+            <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}"
+                          ToolTip="Change to Encrypt or Decrypt"
+                          IsChecked="{Binding IsDecrypt, UpdateSourceTrigger=PropertyChanged}"
+                          Width="50"
+                          Grid.Row="1"
+                          Grid.Column="1" />
+            <PasswordBox x:Name="PasswordBox"
+                         materialDesign:HintAssist.Hint="{Binding PassWordBoxHint, UpdateSourceTrigger=PropertyChanged}"
                          Grid.Row="2"
-                     materialDesign:HintAssist.Hint="Add secure key"
-                     FontSize="17"
-                     VerticalContentAlignment="Center"
-                     HorizontalContentAlignment="Center"
-                     Margin="0 5 0 5" 
-                     Visibility="{Binding TextBox2Visibility}"/>
-                <Button x:Name="btnEncryption"
-                        Content="Encryption"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="3"
+                         HorizontalContentAlignment="Center"
+                         FontSize="18"
+                         Margin="50 20 50 20" />
+            <StackPanel Orientation="Vertical"
                         Grid.Row="3"
                         Grid.Column="1"
-                        Background="DarkGreen" />
-            </Grid>
-        </StackPanel>
-        <Button Grid.Row="3"
-                Grid.Column="2"
-                Width="45"
-                Height="25"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Background="ForestGreen"
-                BorderBrush="Transparent"
-                Margin="10 10 0 0"
-                x:Name="btnAddSecureKey"
-                Command="{Binding ToggleVisibilityCommand}">
-            <materialDesign:PackIcon Kind="Plus"
-                                     Grid.Row="3"
-                                     Grid.Column="2"
-                                     VerticalAlignment="Center"
-                                     HorizontalAlignment="Center"
-                                     Width="25"
-                                     Height="25" />
-        </Button>
-
-    </Grid>
+                        HorizontalAlignment="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="txtAddSecureKey1"
+                             Grid.Row="0"
+                             materialDesign:HintAssist.Hint="Add secure key"
+                             FontSize="17"
+                             VerticalContentAlignment="Center"
+                             HorizontalContentAlignment="Center"
+                             Margin="0 5 0 5" />
+                    <TextBox x:Name="txtAddSecureKey2"
+                             Grid.Row="1"
+                             materialDesign:HintAssist.Hint="Add secure key"
+                             FontSize="17"
+                             VerticalContentAlignment="Center"
+                             HorizontalContentAlignment="Center"
+                             Margin="0 5 0 5"
+                             Visibility="{Binding TextBox1Visibility}" />
+                    <TextBox x:Name="txtAddSecureKey3"
+                             Grid.Row="2"
+                             materialDesign:HintAssist.Hint="Add secure key"
+                             FontSize="17"
+                             VerticalContentAlignment="Center"
+                             HorizontalContentAlignment="Center"
+                             Margin="0 5 0 10"
+                             Visibility="{Binding TextBox2Visibility}" />
+                    <Button x:Name="btnEncryption"
+                            Content="Encryption"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Background="DarkGreen"
+                            Command="{Binding OpenWindow2Command}"/>
+                </Grid>
+            </StackPanel>
+            <Button Grid.Row="3"
+                    Grid.Column="2"
+                    Width="45"
+                    Height="25"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Background="ForestGreen"
+                    BorderBrush="Transparent"
+                    Margin="10 10 0 0"
+                    x:Name="btnAddSecureKey"
+                    Command="{Binding ToggleVisibilityCommand}">
+                <materialDesign:PackIcon Kind="Plus"
+                                         Grid.Row="3"
+                                         Grid.Column="2"
+                                         VerticalAlignment="Center"
+                                         HorizontalAlignment="Center"
+                                         Width="25"
+                                         Height="25" />
+            </Button>
+        </Grid>
+    </StackPanel>
 </Window>

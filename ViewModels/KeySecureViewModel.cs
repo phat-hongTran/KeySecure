@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using System.Windows;
+using KeySecure.Views;
 
 namespace KeySecure.ViewModels
 {
@@ -23,8 +24,11 @@ namespace KeySecure.ViewModels
 
             //Visibility Add Secure Key textbox
             ToggleVisibilityCommand = new RelayCommand<object>(ToggleVisibility);
-            TextBox1Visibility = Visibility.Hidden;
-            TextBox2Visibility = Visibility.Hidden;
+            TextBox1Visibility = Visibility.Collapsed;
+            TextBox2Visibility = Visibility.Collapsed;
+
+            //Show Dialog result
+            OpenWindow2Command = new RelayCommand(OpenWindow2);
         }
 
         #region Update Titel
@@ -132,16 +136,26 @@ namespace KeySecure.ViewModels
         {
 
             //TextBoxVisibility1 = (TextBoxVisibility1 == Visibility.Visible) ? Visibility.Hidden : Visibility.Visible;
-            if (TextBox1Visibility == Visibility.Hidden)
+            if (TextBox1Visibility == Visibility.Collapsed)
             {
                 TextBox1Visibility = Visibility.Visible;
             }
-            else if (TextBox2Visibility == Visibility.Hidden)
+            else if (TextBox2Visibility == Visibility.Collapsed)
             {
                 TextBox2Visibility = Visibility.Visible;
             }
         }
 
+        #endregion
+        #region Show Dialog result
+        public ICommand OpenWindow2Command { get; }
+        private void OpenWindow2()
+        {
+            EncryptResultWindow window2 = new EncryptResultWindow();
+            EncryptResultViewModel viewModel2 = new EncryptResultViewModel();
+            window2.DataContext = viewModel2;
+            window2.Show();
+        }
         #endregion
     }
 }

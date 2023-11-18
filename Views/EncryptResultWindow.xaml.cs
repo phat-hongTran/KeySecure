@@ -1,5 +1,4 @@
-﻿using KeySecure.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,24 +11,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
-namespace KeySecure
+using KeySecure.ViewModels;
+namespace KeySecure.Views
 {
     /// <summary>
-    /// Interaction logic for SecureKeyWindow.xaml
+    /// Interaction logic for EncryptResultWindow.xaml
     /// </summary>
-    public partial class SecureKeyWindow : Window
+    public partial class EncryptResultWindow : Window
     {
-        private KeySecureViewModel viewModel;
-        //private EncryptResultViewModel viewModelEncryptResult;
-        public SecureKeyWindow()
+        private EncryptResultViewModel viewModel;
+        public EncryptResultWindow()
         {
             InitializeComponent();
-
-            viewModel = new KeySecureViewModel();
-            
+            viewModel = new EncryptResultViewModel();
             DataContext = viewModel;
-            //DataContext = viewModelEncryptResult;
         }
     }
 }
