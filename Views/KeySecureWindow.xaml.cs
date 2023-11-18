@@ -26,7 +26,7 @@ namespace KeySecure
             InitializeComponent();
 
             viewModel = new KeySecureViewModel();
-
+            
             DataContext = viewModel;
         }
     }
