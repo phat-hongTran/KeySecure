@@ -66,6 +66,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters.cs" />
+    <Compile Include="ViewModels\KeySecureViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\KeySecureWindow.xaml.cs">
       <DependentUpon>KeySecureWindow.xaml</DependentUpon>

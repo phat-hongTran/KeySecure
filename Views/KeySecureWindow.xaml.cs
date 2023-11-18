@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KeySecure.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,14 @@ namespace KeySecure
     /// </summary>
     public partial class SecureKeyWindow : Window
     {
+        private KeySecureViewModel viewModel;
         public SecureKeyWindow()
         {
             InitializeComponent();
+
+            viewModel = new KeySecureViewModel();
+
+            DataContext = viewModel;
         }
     }
 }

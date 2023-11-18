@@ -32,26 +32,16 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <!--BASE-->
-        <TextBlock x:Name="lblEncryption"
-                   Grid.Row="0"
+        <TextBlock Grid.Row="0"
                    Grid.Column="0"
                    Grid.ColumnSpan="3"
-                   Text="ENCRYPTION PAGE"
+                   Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontSize="25" />
-        <TextBlock x:Name="lblDecryption"
-                   Grid.Row="0"
-                   Grid.Column="0"
-                   Grid.ColumnSpan="3"
-                   Text="DECRYPTION PAGE"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="25"
-                   Visibility="Hidden" />
         <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}"
                       ToolTip="Change to Encrypt or Decrypt"
-                      IsChecked="False"
+                      IsChecked="{Binding IsDecrypt, UpdateSourceTrigger=PropertyChanged}"
                       Width="80"
                       Grid.Row="1"
                       Grid.Column="1" />
