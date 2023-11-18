@@ -238,3 +238,6 @@ D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\KeySecure.exe
 D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\KeySecure.pdb
 D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Views\EncryptResultWindow.g.cs
 D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Views\EncryptResultWindow.baml
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Components\PasswordControl.g.cs
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Components\PasswordControl.baml

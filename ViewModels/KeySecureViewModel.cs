@@ -10,6 +10,8 @@ using GalaSoft.MvvmLight.Command;
 using System.Windows;
 using KeySecure.Views;
 using System.Security.Cryptography;
+using System.Security;
+
 
 namespace KeySecure.ViewModels
 {
@@ -160,11 +162,21 @@ namespace KeySecure.ViewModels
         }
         #endregion
         #region Logic Encryption
+        private string _password;
         private string _inputText1;
         private string _inputText2;
         private string _inputText3;
         private string _encryptedText;
 
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                RaisePropertyChanged(nameof(Password));
+            }
+        }
         public string InputText1
         {
             get { return _inputText1; }
@@ -201,11 +213,11 @@ namespace KeySecure.ViewModels
                 RaisePropertyChanged(nameof(EncryptedText));
             }
         }
-
+        //Execute encrypt and show in the result dialog
         public ICommand EncryptCommand { get; }
         private void Encrypt()
         {
-            string encryptedText = EncryptString(InputText1, InputText2, InputText3);
+            string encryptedText = EncryptString(_password, InputText1, InputText2, InputText3);
             EncryptedText = encryptedText;
             //Binding to Result Window
             EncryptResultViewModel resultViewModel = new EncryptResultViewModel();
@@ -214,10 +226,12 @@ namespace KeySecure.ViewModels
             encryptResultWindow.DataContext = resultViewModel;
             encryptResultWindow.Show();
         }
+        
         MD5 md = MD5.Create();
-        private string EncryptString (string input1, string input2, string input3)
+        private string EncryptString (string mainPw, string input1, string input2, string input3)
         {
-            string concatenatedString = input1 + input2 + input3;        
+           
+            string concatenatedString = mainPw + input1 + input2 + input3;        
             byte[] inputString = System.Text.Encoding.ASCII.GetBytes(concatenatedString);
             byte[] hash = md.ComputeHash(inputString);
             StringBuilder encryptedString = new StringBuilder();
