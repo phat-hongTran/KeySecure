@@ -44,6 +44,7 @@ namespace KeySecure.ViewModels
                 RaisePropertyChanged(nameof(IsDecrypt));
                 UpdateTitle(value);
                 UpdateHint(value);
+                UpdateButtonTitle(value);
             }
         }
 
@@ -61,6 +62,21 @@ namespace KeySecure.ViewModels
             {
                 _PassWordBoxHint = value;
                 RaisePropertyChanged(nameof(PassWordBoxHint));
+            }
+        }
+        #endregion
+        #region Update button name Encrypt-Decrypt
+        private string _buttonTitle;
+        private const string encryptButton = "Encrypt";
+        private const string decryptButton = "Decrypt";
+
+        public string ButtonTitle
+        {
+            get { return _buttonTitle; }
+            set
+            {
+                _buttonTitle = value;
+                RaisePropertyChanged(nameof(ButtonTitle));
             }
         }
         #endregion
@@ -162,6 +178,12 @@ namespace KeySecure.ViewModels
         private void UpdateHint(bool isDecrypt)
         {
             PassWordBoxHint = isDecrypt ? decryptHint : encryptHint;
+        }
+        #endregion
+        #region Update Button Title
+        private void UpdateButtonTitle (bool isDecrypt)
+        {
+            ButtonTitle = isDecrypt ? decryptButton : encryptButton;
         }
         #endregion
         #region Show Secure Key TextBox
