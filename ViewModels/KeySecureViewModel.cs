@@ -11,13 +11,14 @@ using System.Windows;
 using KeySecure.Views;
 using System.Security.Cryptography;
 using System.Security;
-
+using System.Windows.Forms;
+using Clipboard = System.Windows.Forms.Clipboard;
 
 namespace KeySecure.ViewModels
 {
     public class KeySecureViewModel : ViewModelBase
     {
-        #region PROPERTIES
+        //PROPERTIES
         #region Update Title
         private string title;
         private const string encryptTitle = "ENCRYPTION";
@@ -166,8 +167,19 @@ namespace KeySecure.ViewModels
             }
         }
         #endregion
+        #region Copy to Clipboard
+        private string _copyTextClipboard;
+        public string CopyTextClipboard
+        {
+            get { return _copyTextClipboard; }
+            set
+            {
+                _copyTextClipboard = value;
+                RaisePropertyChanged(nameof(CopyTextClipboard));
+            }
+        }
         #endregion
-        #region METHODS
+        //METHODS
         #region Update Title
         private void UpdateTitle(bool isDecrypt)
         {
@@ -227,15 +239,23 @@ namespace KeySecure.ViewModels
             return encryptedString.ToString();
         }
         #endregion
+        #region Copy to Clipboard
+        private void CopyText ()
+        {
+            Clipboard.SetText(EncryptedText);
+        }
         #endregion
-        #region COMMANDS
+        //COMMANDS
         #region Show Secure Key TextBox
         public ICommand ToggleVisibilityCommand { get; }
         #endregion
         #region Logic Encryption
         public ICommand EncryptCommand { get; }
         #endregion
+        #region Copy to Clipboard 
+        public ICommand CopyToClipBoardCommand { get; }
         #endregion
+        //Constructor
         #region Constructor
         public KeySecureViewModel()
         {
@@ -250,6 +270,8 @@ namespace KeySecure.ViewModels
 
             //Show Result
             EncryptCommand = new RelayCommand(Encrypt);
+            //Copy To Clipboar
+            CopyToClipBoardCommand = new RelayCommand(CopyText);
         }
         #endregion
     }

@@ -34,9 +34,10 @@
                  IsReadOnly="True"
                  Text="{Binding EncryptedText}"/>
         <Button x:Name="btnEncryption"
-                Content="Copy"
+                Content="{Binding ContentCopyButton}"
                 Grid.Row="2"
                 Background="DarkGreen"
-                Width="80" />
+                Width="80"
+                Command="{Binding CopyToClipBoardCommand}"/>
     </Grid>
 </Window>
