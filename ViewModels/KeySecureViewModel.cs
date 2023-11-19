@@ -17,27 +17,8 @@ namespace KeySecure.ViewModels
 {
     public class KeySecureViewModel : ViewModelBase
     {
-        public KeySecureViewModel()
-        {
-            //Change content
-            IsDecrypt = false;
-            ColorAdd = "ForestGreen";
-            //Add textbox
-            SercureKeyCollection = new ObservableCollection<string>();
-            AddSecureKey = new RelayCommand<object>(CommandAddSecureKey);
-
-            //Visibility Add Secure Key textbox
-            ToggleVisibilityCommand = new RelayCommand<object>(ToggleVisibility);
-            TextBox1Visibility = Visibility.Collapsed;
-            TextBox2Visibility = Visibility.Collapsed;
-
-            //Show Dialog result
-            OpenWindow2Command = new RelayCommand(OpenWindow2);
-            //Show Result
-            EncryptCommand = new RelayCommand(Encrypt);
-        }
-
-        #region Update Titel
+        #region PROPERTIES
+        #region Update Title
         private string title;
         private const string encryptTitle = "ENCRYPTION";
         private const string decryptTitle = "DECRYPTION";
@@ -66,12 +47,9 @@ namespace KeySecure.ViewModels
             }
         }
 
-        private void UpdateTitle(bool isDecrypt)
-        {
-            Title = isDecrypt ? decryptTitle : encryptTitle;
-        }
+
         #endregion
-        #region Update Hint in main PasswordBox
+        #region Update Hint in PasswordBox
         private string _PassWordBoxHint;
         private const string encryptHint = "Input your password here!";
         private const string decryptHint = "Input your encrypt string here!";
@@ -85,32 +63,12 @@ namespace KeySecure.ViewModels
                 RaisePropertyChanged(nameof(PassWordBoxHint));
             }
         }
-        private void UpdateHint(bool isDecrypt)
-        {
-            PassWordBoxHint = isDecrypt ? decryptHint : encryptHint;
-        }
         #endregion
-        #region Add Textbox for Secure Key
-        public ObservableCollection<string> SercureKeyCollection { get; set; }
-        public ICommand AddSecureKey
-        {
-            get;
-            private set;
-        }
-        private void CommandAddSecureKey(object parameter)
-        {
-            if (SercureKeyCollection.Count < 2)
-            {
-                SercureKeyCollection.Add("Add secure key");
-            }
-        }
-        #endregion
-        #region Show textbox for Secure Key Item
+        #region Show Secure Key TextBox
         private Visibility _textBox1Visibility;
         private Visibility _textBox2Visibility;
         private string _colorBtnAdd = "Gray";
 
-        public ICommand ToggleVisibilityCommand { get; }
         public Visibility TextBox1Visibility
         {
             get { return _textBox1Visibility; }
@@ -137,28 +95,6 @@ namespace KeySecure.ViewModels
                 _colorBtnAdd = value;
                 RaisePropertyChanged(nameof(ColorAdd));
             }
-        }
-        private void ToggleVisibility(object parameter)
-        {           
-            if (TextBox1Visibility == Visibility.Collapsed)
-            {
-                TextBox1Visibility = Visibility.Visible;
-            }
-            else if (TextBox2Visibility == Visibility.Collapsed)
-            {
-                TextBox2Visibility = Visibility.Visible;
-                ColorAdd = "Gray";
-            }
-        }
-        #endregion
-        #region Show Dialog result
-        public ICommand OpenWindow2Command { get; }
-        private void OpenWindow2()
-        {
-            EncryptResultWindow window2 = new EncryptResultWindow();
-            EncryptResultViewModel viewModel2 = new EncryptResultViewModel();
-            window2.DataContext = viewModel2;
-            window2.Show();
         }
         #endregion
         #region Logic Encryption
@@ -213,8 +149,36 @@ namespace KeySecure.ViewModels
                 RaisePropertyChanged(nameof(EncryptedText));
             }
         }
-        //Execute encrypt and show in the result dialog
-        public ICommand EncryptCommand { get; }
+        #endregion
+        #endregion
+        #region METHODS
+        #region Update Title
+        private void UpdateTitle(bool isDecrypt)
+        {
+            Title = isDecrypt ? decryptTitle : encryptTitle;
+        }
+        #endregion
+        #region Update Hint in PasswordBox
+        private void UpdateHint(bool isDecrypt)
+        {
+            PassWordBoxHint = isDecrypt ? decryptHint : encryptHint;
+        }
+        #endregion
+        #region Show Secure Key TextBox
+        private void ToggleVisibility(object parameter)
+        {
+            if (TextBox1Visibility == Visibility.Collapsed)
+            {
+                TextBox1Visibility = Visibility.Visible;
+            }
+            else if (TextBox2Visibility == Visibility.Collapsed)
+            {
+                TextBox2Visibility = Visibility.Visible;
+                ColorAdd = "Gray";
+            }
+        }
+        #endregion
+        #region Logic Encryption
         private void Encrypt()
         {
             string encryptedText = EncryptString(_password, InputText1, InputText2, InputText3);
@@ -226,20 +190,44 @@ namespace KeySecure.ViewModels
             encryptResultWindow.DataContext = resultViewModel;
             encryptResultWindow.Show();
         }
-        
+
         MD5 md = MD5.Create();
-        private string EncryptString (string mainPw, string input1, string input2, string input3)
+        private string EncryptString(string mainPw, string input1, string input2, string input3)
         {
-           
-            string concatenatedString = mainPw + input1 + input2 + input3;        
+            string concatenatedString = mainPw + input1 + input2 + input3;
             byte[] inputString = System.Text.Encoding.ASCII.GetBytes(concatenatedString);
             byte[] hash = md.ComputeHash(inputString);
             StringBuilder encryptedString = new StringBuilder();
-            for(int i = 0; i< hash.Length; i++)
+            for (int i = 0; i < hash.Length; i++)
             {
                 encryptedString.Append(hash[i].ToString("X2"));
             }
-            return encryptedString.ToString();           
+            return encryptedString.ToString();
+        }
+        #endregion
+        #endregion
+        #region COMMANDS
+        #region Show Secure Key TextBox
+        public ICommand ToggleVisibilityCommand { get; }
+        #endregion
+        #region Logic Encryption
+        public ICommand EncryptCommand { get; }
+        #endregion
+        #endregion
+        #region Constructor
+        public KeySecureViewModel()
+        {
+            //Change content
+            IsDecrypt = false;
+            ColorAdd = "ForestGreen";
+
+            //Visibility Add Secure Key textbox
+            ToggleVisibilityCommand = new RelayCommand<object>(ToggleVisibility);
+            TextBox1Visibility = Visibility.Collapsed;
+            TextBox2Visibility = Visibility.Collapsed;
+
+            //Show Result
+            EncryptCommand = new RelayCommand(Encrypt);
         }
         #endregion
     }
