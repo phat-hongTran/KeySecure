@@ -115,12 +115,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Components\PasswordControl.xaml.cs">
+      <DependentUpon>PasswordControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters.cs" />
+    <Compile Include="ViewModels\EncryptResultViewModel.cs" />
     <Compile Include="ViewModels\KeySecureViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\EncryptResultWindow.xaml.cs">
+      <DependentUpon>EncryptResultWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\KeySecureWindow.xaml.cs">
       <DependentUpon>KeySecureWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Components\PasswordControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -133,6 +144,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\EncryptResultWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\KeySecureWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -21,6 +21,7 @@ namespace KeySecure
     public partial class SecureKeyWindow : Window
     {
         private KeySecureViewModel viewModel;
+        //private EncryptResultViewModel viewModelEncryptResult;
         public SecureKeyWindow()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace KeySecure
             viewModel = new KeySecureViewModel();
             
             DataContext = viewModel;
+            //DataContext = viewModelEncryptResult;
         }
     }
 }
