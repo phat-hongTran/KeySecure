@@ -23,6 +23,16 @@ namespace KeySecure.ViewModels
                 RaisePropertyChanged(nameof(EncryptedText));
             }
         }
+        private string _decryptedText;
+        public string DecryptedText
+        {
+            get { return _decryptedText; }
+            set
+            {
+                _decryptedText = value;
+                RaisePropertyChanged(nameof(DecryptedText));
+            }
+        }
         #endregion
         #region Copy to Clipboard
         private string _contentCopyButton;
