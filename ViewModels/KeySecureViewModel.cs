@@ -13,6 +13,7 @@ using System.Security.Cryptography;
 using System.Security;
 using System.Windows.Forms;
 using Clipboard = System.Windows.Forms.Clipboard;
+using System.IO;
 
 namespace KeySecure.ViewModels
 {
@@ -193,7 +194,7 @@ namespace KeySecure.ViewModels
         }
         #endregion
         #region Update Button Title
-        private void UpdateButtonTitle (bool isDecrypt)
+        private void UpdateButtonTitle(bool isDecrypt)
         {
             ButtonTitle = isDecrypt ? decryptButton : encryptButton;
         }
@@ -225,22 +226,39 @@ namespace KeySecure.ViewModels
             encryptResultWindow.Show();
         }
 
-        MD5 md = MD5.Create();
-        private string EncryptString(string mainPw, string input1, string input2, string input3)
+        //MD5 md = MD5.Create();
+        public static string EncryptString(string mainPw, string input1, string input2, string input3)
         {
             string concatenatedString = mainPw + input1 + input2 + input3;
-            byte[] inputString = System.Text.Encoding.ASCII.GetBytes(concatenatedString);
-            byte[] hash = md.ComputeHash(inputString);
-            StringBuilder encryptedString = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
+            //byte[] inputString = System.Text.Encoding.ASCII.GetBytes(concatenatedString);
+            //byte[] hash = md.ComputeHash(inputString);
+            //StringBuilder encryptedString = new StringBuilder();
+            //for (int i = 0; i < hash.Length; i++)
+            //{
+            //    encryptedString.Append(hash[i].ToString("X2"));
+            //}
+            string EncryptionKey = "abc12";
+            byte[] clearBytes = Encoding.Unicode.GetBytes(concatenatedString);
+            using (Aes encryptor = Aes.Create())
             {
-                encryptedString.Append(hash[i].ToString("X2"));
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    concatenatedString = Convert.ToBase64String(ms.ToArray());
+                }
             }
-            return encryptedString.ToString();
+            return concatenatedString.ToString();
         }
         #endregion
         #region Copy to Clipboard
-        private void CopyText ()
+        private void CopyText()
         {
             Clipboard.SetText(EncryptedText);
         }
