@@ -1,0 +1,41 @@
+﻿<Window x:Class="KeySecure.Views.DecryptResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KeySecure.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen"
+        Title="Decrypt Result" Height="200" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Your encrypt string was decrypted successfully!"
+                   Grid.Row="0"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Background="LightGreen"
+                   Padding="10" />
+        <TextBox Grid.Row="1"
+                 Margin="15"
+                 IsReadOnly="True"
+                 Text="{Binding EncryptedText}"/>
+        <Button x:Name="btnEncryption"
+                Content="{Binding ContentCopyButton}"
+                Grid.Row="2"
+                Background="DarkGreen"
+                Width="80"
+                Command="{Binding CopyToClipBoardCommand}"/>
+    </Grid>
+</Window>

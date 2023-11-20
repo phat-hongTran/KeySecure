@@ -23,16 +23,7 @@ namespace KeySecure.ViewModels
                 RaisePropertyChanged(nameof(EncryptedText));
             }
         }
-        private string _decryptedText;
-        public string DecryptedText
-        {
-            get { return _decryptedText; }
-            set
-            {
-                _decryptedText = value;
-                RaisePropertyChanged(nameof(DecryptedText));
-            }
-        }
+        
         #endregion
         #region Copy to Clipboard
         private string _contentCopyButton;
@@ -81,7 +72,7 @@ namespace KeySecure.ViewModels
         #endregion
         //METHODS
         #region Copy to Clipboard
-        private void CopyText()
+        public void CopyText()
         {
             Clipboard.SetText(EncryptedText);
             ContentCopyButton = ContentAfterCopy;

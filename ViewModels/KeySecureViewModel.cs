@@ -272,11 +272,11 @@ namespace KeySecure.ViewModels
             string decryptedText = DecryptString(_password, InputText1, InputText2, InputText3);
             DecryptedText = decryptedText;
             //Binding to Result Window
-            EncryptResultViewModel resultViewModel = new EncryptResultViewModel();
-            resultViewModel.EncryptedText = decryptedText;
-            EncryptResultWindow encryptResultWindow = new EncryptResultWindow();
-            encryptResultWindow.DataContext = resultViewModel;
-            encryptResultWindow.Show();
+            DecryptResultViewModel resultViewModel = new DecryptResultViewModel();
+            resultViewModel.DecryptedText = decryptedText;
+            DecryptResultWindow decryptResultWindow = new DecryptResultWindow();
+            decryptResultWindow.DataContext = resultViewModel;
+            decryptResultWindow.Show();
         }
         public static string DecryptString(string mainEncr, string input1, string input2, string input3)
         {
@@ -315,6 +315,7 @@ namespace KeySecure.ViewModels
         #endregion
         #region Logic Encryption
         public ICommand EncryptCommand { get; }
+        //public ICommand DecryptCommand { get; }
         #endregion
         #region Copy to Clipboard 
         public ICommand CopyToClipBoardCommand { get; }
@@ -337,7 +338,7 @@ namespace KeySecure.ViewModels
             {
                 EncryptCommand = new RelayCommand(Decrypt);
             }
-            else
+            else if (IsDecrypt == false)
             {
                 EncryptCommand = new RelayCommand(Encrypt);
             }
