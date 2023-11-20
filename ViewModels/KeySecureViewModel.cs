@@ -11,13 +11,15 @@ using System.Windows;
 using KeySecure.Views;
 using System.Security.Cryptography;
 using System.Security;
-
+using System.Windows.Forms;
+using Clipboard = System.Windows.Forms.Clipboard;
+using System.IO;
 
 namespace KeySecure.ViewModels
 {
     public class KeySecureViewModel : ViewModelBase
     {
-        #region PROPERTIES
+        //PROPERTIES
         #region Update Title
         private string title;
         private const string encryptTitle = "ENCRYPTION";
@@ -119,6 +121,7 @@ namespace KeySecure.ViewModels
         private string _inputText2;
         private string _inputText3;
         private string _encryptedText;
+        private string _decryptedText;
 
         public string Password
         {
@@ -165,9 +168,30 @@ namespace KeySecure.ViewModels
                 RaisePropertyChanged(nameof(EncryptedText));
             }
         }
+        public string DecryptedText
+        {
+            get { return _decryptedText; }
+            set
+            {
+                _decryptedText = value;
+                RaisePropertyChanged(nameof(DecryptedText));
+            }
+        }
         #endregion
+        #region Copy to Clipboard
+        private string _copyTextClipboard;
+        public string CopyTextClipboard
+        {
+            get { return _copyTextClipboard; }
+            set
+            {
+                _copyTextClipboard = value;
+                RaisePropertyChanged(nameof(CopyTextClipboard));
+            }
+        }
         #endregion
-        #region METHODS
+
+        //METHODS
         #region Update Title
         private void UpdateTitle(bool isDecrypt)
         {
@@ -181,7 +205,7 @@ namespace KeySecure.ViewModels
         }
         #endregion
         #region Update Button Title
-        private void UpdateButtonTitle (bool isDecrypt)
+        private void UpdateButtonTitle(bool isDecrypt)
         {
             ButtonTitle = isDecrypt ? decryptButton : encryptButton;
         }
@@ -213,29 +237,89 @@ namespace KeySecure.ViewModels
             encryptResultWindow.Show();
         }
 
-        MD5 md = MD5.Create();
-        private string EncryptString(string mainPw, string input1, string input2, string input3)
+        public static string EncryptString(string mainPw, string input1, string input2, string input3)
         {
             string concatenatedString = mainPw + input1 + input2 + input3;
-            byte[] inputString = System.Text.Encoding.ASCII.GetBytes(concatenatedString);
-            byte[] hash = md.ComputeHash(inputString);
-            StringBuilder encryptedString = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
+            string EncryptionKey = input1 + input2 + input3;
+            byte[] clearBytes = Encoding.Unicode.GetBytes(concatenatedString);
+            using (Aes encryptor = Aes.Create())
             {
-                encryptedString.Append(hash[i].ToString("X2"));
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    concatenatedString = Convert.ToBase64String(ms.ToArray());
+                }
             }
-            return encryptedString.ToString();
+            return concatenatedString.ToString();
         }
         #endregion
+        #region Copy to Clipboard
+        private void CopyText()
+        {
+            Clipboard.SetText(EncryptedText);
+        }
         #endregion
-        #region COMMANDS
+        #region Logic Decrypt
+        private void Decrypt()
+        {
+            string decryptedText = DecryptString(_password, InputText1, InputText2, InputText3);
+            DecryptedText = decryptedText;
+            //Binding to Result Window
+            EncryptResultViewModel resultViewModel = new EncryptResultViewModel();
+            resultViewModel.EncryptedText = decryptedText;
+            EncryptResultWindow encryptResultWindow = new EncryptResultWindow();
+            encryptResultWindow.DataContext = resultViewModel;
+            encryptResultWindow.Show();
+        }
+        public static string DecryptString(string mainEncr, string input1, string input2, string input3)
+        {
+            //string concatenatedEcrString = mainEncr + input1 + input2 + input3;
+            string EncryptionKey = input1 + input2 + input3; ;
+            mainEncr = mainEncr.Replace(" ", "+");
+            try
+            {
+                byte[] cipherBytes = Convert.FromBase64String(mainEncr);
+                using (Aes encryptor = Aes.Create())
+                {
+                    Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                    encryptor.Key = pdb.GetBytes(32);
+                    encryptor.IV = pdb.GetBytes(16);
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                        {
+                            cs.Write(cipherBytes, 0, cipherBytes.Length);
+                            cs.Close();
+                        }
+                        mainEncr = Encoding.Unicode.GetString(ms.ToArray());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.Application.Exit();
+            }
+            return mainEncr.ToString();
+        }
+        #endregion
+        //COMMANDS
         #region Show Secure Key TextBox
         public ICommand ToggleVisibilityCommand { get; }
         #endregion
         #region Logic Encryption
         public ICommand EncryptCommand { get; }
         #endregion
+        #region Copy to Clipboard 
+        public ICommand CopyToClipBoardCommand { get; }
         #endregion
+        //Constructor
         #region Constructor
         public KeySecureViewModel()
         {
@@ -249,7 +333,16 @@ namespace KeySecure.ViewModels
             TextBox2Visibility = Visibility.Collapsed;
 
             //Show Result
-            EncryptCommand = new RelayCommand(Encrypt);
+            if (IsDecrypt == true)
+            {
+                EncryptCommand = new RelayCommand(Decrypt);
+            }
+            else
+            {
+                EncryptCommand = new RelayCommand(Encrypt);
+            }
+            //Copy To Clipboar
+            CopyToClipBoardCommand = new RelayCommand(CopyText);
         }
         #endregion
     }
