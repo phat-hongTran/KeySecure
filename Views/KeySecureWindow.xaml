@@ -18,6 +18,9 @@
         Title="Key Secure"
         Height="330"
         Width="400">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </Window.Resources>
     <StackPanel>
         <Grid>
             <Grid.RowDefinitions>
@@ -91,12 +94,20 @@
                              Margin="0 5 0 10"
                              Visibility="{Binding TextBox2Visibility}"
                              Text="{Binding InputText3}" />
-                    <Button x:Name="btnExecute"                          
-                            Content="{Binding ButtonTitle, UpdateSourceTrigger=PropertyChanged}"
+                    <Button x:Name="btnEncrypt"
+                            Content="Encrypt"
                             Grid.Row="3"
                             Grid.Column="1"
                             Background="DarkGreen"
-                            Command="{Binding EncryptCommand}" />
+                            Command="{Binding EncryptCommand}"
+                            Visibility="{Binding IsEncryptButtonVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    <Button x:Name="btnDecrypt"
+                            Content="Decrypt"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Background="DarkGreen"
+                            Command="{Binding EncryptCommand}"
+                            Visibility="{Binding IsDecryptButtonVisible , Converter={StaticResource BoolToVisibilityConverter}}" />
                 </Grid>
             </StackPanel>
             <Button Grid.Row="3"

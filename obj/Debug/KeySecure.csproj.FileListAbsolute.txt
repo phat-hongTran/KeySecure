@@ -308,3 +308,5 @@ D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\KeySecure.exe
 D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\KeySecure.pdb
 D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\Views\DecryptResultWindow.g.cs
 D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\Views\DecryptResultWindow.baml
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Views\DecryptResultWindow.g.cs
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Views\DecryptResultWindow.baml

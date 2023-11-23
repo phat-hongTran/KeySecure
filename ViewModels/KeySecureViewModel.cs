@@ -46,11 +46,9 @@ namespace KeySecure.ViewModels
                 RaisePropertyChanged(nameof(IsDecrypt));
                 UpdateTitle(value);
                 UpdateHint(value);
-                UpdateButtonTitle(value);
+                UpdateButtonVisibility();
             }
         }
-
-
         #endregion
         #region Update Hint in PasswordBox
         private string _PassWordBoxHint;
@@ -190,6 +188,42 @@ namespace KeySecure.ViewModels
             }
         }
         #endregion
+        #region Show Encrypt - Decrypt button
+       
+        private bool isEncryptionEnabled;
+        public bool IsEncryptionEnabled
+        {
+            get { return isEncryptionEnabled; }
+            set
+            {
+                isEncryptionEnabled = value;
+                RaisePropertyChanged(nameof(IsEncryptionEnabled));
+                UpdateButtonVisibility();
+            }
+        }
+        private bool isEncryptButtonVisible;
+        public bool IsEncryptButtonVisible
+        {
+            get { return isEncryptButtonVisible; }
+            set
+            {
+                isEncryptButtonVisible = value;
+                RaisePropertyChanged(nameof(IsEncryptButtonVisible));
+            }
+        }
+
+        private bool isDecryptButtonVisible;
+        public bool IsDecryptButtonVisible
+        {
+            get { return isDecryptButtonVisible; }
+            set
+            {
+                isDecryptButtonVisible = value;
+                RaisePropertyChanged(nameof(IsDecryptButtonVisible));
+            }
+        }
+
+        #endregion
 
         //METHODS
         #region Update Title
@@ -309,6 +343,21 @@ namespace KeySecure.ViewModels
             return mainEncr.ToString();
         }
         #endregion
+        #region Show Encrypt - Decrypt button
+        private void UpdateButtonVisibility()
+        {
+            if (!IsDecrypt)
+            {
+                IsEncryptButtonVisible = true;
+                IsDecryptButtonVisible = false;
+            }
+            else
+            {
+                IsEncryptButtonVisible = false;
+                IsDecryptButtonVisible = true;
+            }
+        }
+        #endregion
         //COMMANDS
         #region Show Secure Key TextBox
         public ICommand ToggleVisibilityCommand { get; }
@@ -319,6 +368,9 @@ namespace KeySecure.ViewModels
         #endregion
         #region Copy to Clipboard 
         public ICommand CopyToClipBoardCommand { get; }
+        #endregion
+        #region Logic Decrypt
+        public ICommand DecryptCommand { get; }
         #endregion
         //Constructor
         #region Constructor
@@ -344,6 +396,7 @@ namespace KeySecure.ViewModels
             }
             //Copy To Clipboar
             CopyToClipBoardCommand = new RelayCommand(CopyText);
+            //Show Button Encrypt Decrypt
         }
         #endregion
     }

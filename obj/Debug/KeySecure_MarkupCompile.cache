@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\
 KeySecure
 none
 false
 DEBUG;TRACE
-D:\4.PERSONAL\5.CODING\KeySecure\App.xaml
-5-332000550
+D:\HUY\7.NET C SHARP\SecureApp\App.xaml
+51548512887
 
-14-1108079233
-138-433436536
+141454896103
+138-1179218443
 Components\PasswordControl.xaml;MainWindow.xaml;Views\DecryptResultWindow.xaml;Views\EncryptResultWindow.xaml;Views\KeySecureWindow.xaml;
 
 False
