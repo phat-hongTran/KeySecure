@@ -30,7 +30,7 @@
         <TextBox Grid.Row="1"
                  Margin="15"
                  IsReadOnly="True"
-                 Text="{Binding EncryptedText}"/>
+                 Text="{Binding DecryptedText}"/>
         <Button x:Name="btnEncryption"
                 Content="{Binding ContentCopyButton}"
                 Grid.Row="2"

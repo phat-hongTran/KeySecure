@@ -106,7 +106,7 @@
                             Grid.Row="3"
                             Grid.Column="1"
                             Background="DarkGreen"
-                            Command="{Binding EncryptCommand}"
+                            Command="{Binding DecryptCommand}"
                             Visibility="{Binding IsDecryptButtonVisible , Converter={StaticResource BoolToVisibilityConverter}}" />
                 </Grid>
             </StackPanel>

@@ -14,6 +14,7 @@ using System.Security;
 using System.Windows.Forms;
 using Clipboard = System.Windows.Forms.Clipboard;
 using System.IO;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace KeySecure.ViewModels
 {
@@ -189,7 +190,7 @@ namespace KeySecure.ViewModels
         }
         #endregion
         #region Show Encrypt - Decrypt button
-       
+
         private bool isEncryptionEnabled;
         public bool IsEncryptionEnabled
         {
@@ -261,9 +262,9 @@ namespace KeySecure.ViewModels
         #region Logic Encryption
         private void Encrypt()
         {
-            string encryptedText = EncryptString(_password, InputText1, InputText2, InputText3);
+
+            string encryptedText = EncryptString(Password, InputText1, InputText2, InputText3);
             EncryptedText = encryptedText;
-            //Binding to Result Window
             EncryptResultViewModel resultViewModel = new EncryptResultViewModel();
             resultViewModel.EncryptedText = encryptedText;
             EncryptResultWindow encryptResultWindow = new EncryptResultWindow();
@@ -271,27 +272,24 @@ namespace KeySecure.ViewModels
             encryptResultWindow.Show();
         }
 
-        public static string EncryptString(string mainPw, string input1, string input2, string input3)
+        public static string EncryptString(string mainPassword, string input1, string input2, string input3)
         {
-            string concatenatedString = mainPw + input1 + input2 + input3;
-            string EncryptionKey = input1 + input2 + input3;
-            byte[] clearBytes = Encoding.Unicode.GetBytes(concatenatedString);
-            using (Aes encryptor = Aes.Create())
+            string hash = input1 + input2 + input3;
+            string concateString = mainPassword + hash;
+            byte[] data = UTF8Encoding.UTF8.GetBytes(concateString);
+
+            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
             {
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
-                encryptor.Key = pdb.GetBytes(32);
-                encryptor.IV = pdb.GetBytes(16);
-                using (MemoryStream ms = new MemoryStream())
+                byte[] keys = md5.ComputeHash(UTF32Encoding.UTF8.GetBytes(hash));
+                using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
                 {
-                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
-                    {
-                        cs.Write(clearBytes, 0, clearBytes.Length);
-                        cs.Close();
-                    }
-                    concatenatedString = Convert.ToBase64String(ms.ToArray());
+                    ICryptoTransform transform = tripDes.CreateEncryptor();
+                    byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
+                    string enCryptmainPassword = Convert.ToBase64String(results, 0, results.Length);
+
+                    return enCryptmainPassword;
                 }
             }
-            return concatenatedString.ToString();
         }
         #endregion
         #region Copy to Clipboard
@@ -303,7 +301,7 @@ namespace KeySecure.ViewModels
         #region Logic Decrypt
         private void Decrypt()
         {
-            string decryptedText = DecryptString(_password, InputText1, InputText2, InputText3);
+            string decryptedText = DecryptString(Password, InputText1, InputText2, InputText3);
             DecryptedText = decryptedText;
             //Binding to Result Window
             DecryptResultViewModel resultViewModel = new DecryptResultViewModel();
@@ -312,35 +310,30 @@ namespace KeySecure.ViewModels
             decryptResultWindow.DataContext = resultViewModel;
             decryptResultWindow.Show();
         }
-        public static string DecryptString(string mainEncr, string input1, string input2, string input3)
+        public static string DecryptString(string mainEncrString, string input1, string input2, string input3)
         {
-            //string concatenatedEcrString = mainEncr + input1 + input2 + input3;
-            string EncryptionKey = input1 + input2 + input3; ;
-            mainEncr = mainEncr.Replace(" ", "+");
             try
             {
-                byte[] cipherBytes = Convert.FromBase64String(mainEncr);
-                using (Aes encryptor = Aes.Create())
+                string hash = input1 + input2 + input3;
+                byte[] data = Convert.FromBase64String(mainEncrString);
+
+                using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
                 {
-                    Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
-                    encryptor.Key = pdb.GetBytes(32);
-                    encryptor.IV = pdb.GetBytes(16);
-                    using (MemoryStream ms = new MemoryStream())
+                    byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                    using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
                     {
-                        using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
-                        {
-                            cs.Write(cipherBytes, 0, cipherBytes.Length);
-                            cs.Close();
-                        }
-                        mainEncr = Encoding.Unicode.GetString(ms.ToArray());
+                        ICryptoTransform transform = tripDes.CreateDecryptor();
+                        byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
+                        string decryptStringResult = UTF8Encoding.UTF8.GetString(results);
+
+                        return decryptStringResult;
                     }
                 }
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.Application.Exit();
+                return ex.Message.ToString();
             }
-            return mainEncr.ToString();
         }
         #endregion
         #region Show Encrypt - Decrypt button
@@ -386,14 +379,9 @@ namespace KeySecure.ViewModels
             TextBox2Visibility = Visibility.Collapsed;
 
             //Show Result
-            if (IsDecrypt == true)
-            {
-                EncryptCommand = new RelayCommand(Decrypt);
-            }
-            else if (IsDecrypt == false)
-            {
-                EncryptCommand = new RelayCommand(Encrypt);
-            }
+            DecryptCommand = new RelayCommand(Decrypt);
+            EncryptCommand = new RelayCommand(Encrypt);
+
             //Copy To Clipboar
             CopyToClipBoardCommand = new RelayCommand(CopyText);
             //Show Button Encrypt Decrypt
