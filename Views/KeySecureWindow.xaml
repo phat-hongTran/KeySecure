@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KeySecure"
         xmlns:Components="clr-namespace:KeySecure.Components"
+        xmlns:Converter="clr-namespace:KeySecure.Converter"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -20,6 +21,7 @@
         Width="400">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <Converter:ConcatenationConverter x:Key="ConcatenationConverter"/>
     </Window.Resources>
     <StackPanel>
         <Grid>

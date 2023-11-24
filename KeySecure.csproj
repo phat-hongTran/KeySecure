@@ -120,6 +120,7 @@
       <DependentUpon>PasswordControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters.cs" />
+    <Compile Include="Converter\ConcatenationConverter.cs" />
     <Compile Include="ViewModels\DecryptResultViewModel.cs" />
     <Compile Include="ViewModels\EncryptResultViewModel.cs" />
     <Compile Include="ViewModels\KeySecureViewModel.cs" />
