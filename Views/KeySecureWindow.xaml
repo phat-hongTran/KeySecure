@@ -33,7 +33,7 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
-                <ColumnDefinition />
+                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <!--BASE-->
@@ -100,20 +100,26 @@
                              Visibility="{Binding TextBox3Visibility}"
                              Text="{Binding InputText3Encr}" 
                              MaxLength="3"/>
-                    <Button x:Name="btnEncrypt"
-                            Content="Encrypt"
-                            Grid.Row="3"
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button Content="Reset" Margin="0 0 15 0" 
+                                Command="{Binding ResetToDefauld}"/>
+                        <Button x:Name="btnEncrypt"
+                            Content="Encrypt"                        
                             Grid.Column="1"
                             Background="DarkGreen"
                             Command="{Binding EncryptCommand}"
                             Visibility="{Binding IsEncryptButtonVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
-                    <Button x:Name="btnDecrypt"
-                            Content="Decrypt"
-                            Grid.Row="3"
+                        <Button x:Name="btnDecrypt"
+                            Content="Decrypt"                           
                             Grid.Column="1"
                             Background="DarkGreen"
                             Command="{Binding DecryptCommand}"
                             Visibility="{Binding IsDecryptButtonVisible , Converter={StaticResource BoolToVisibilityConverter}}" />
+                    </Grid>
                 </Grid>
             </StackPanel>
             <Button Grid.Row="3"

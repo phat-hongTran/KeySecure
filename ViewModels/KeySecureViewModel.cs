@@ -401,6 +401,17 @@ namespace KeySecure.ViewModels
             }
         }
         #endregion
+        #region Reset to defauld
+        private void ResetDefault()
+        {
+            InputText1Encr = string.Empty;
+            InputText2Encr = string.Empty;
+            InputText3Encr = string.Empty;
+            TextBox2Visibility = Visibility.Collapsed;
+            TextBox3Visibility = Visibility.Collapsed;
+            ColorAdd = "ForestGreen";
+        }
+        #endregion
         //COMMANDS
         #region Show Secure Key TextBox
         public ICommand ToggleVisibilityCommand { get; }
@@ -414,6 +425,9 @@ namespace KeySecure.ViewModels
         #endregion
         #region Logic Decrypt
         public ICommand DecryptCommand { get; }
+        #endregion
+        #region Reset to defauld
+        public ICommand ResetToDefault { get; }
         #endregion
         //Constructor
         #region Constructor
@@ -434,7 +448,8 @@ namespace KeySecure.ViewModels
 
             //Copy To Clipboar
             CopyToClipBoardCommand = new RelayCommand(CopyText);
-            //Show Button Encrypt Decrypt
+            //Reset to defauld
+            ResetToDefault = new RelayCommand(ResetDefault);
         }
         #endregion
     }
