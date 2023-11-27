@@ -285,7 +285,6 @@ D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Runtime.CompilerServices.Unsaf
 D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Threading.Channels.xml
 D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Threading.Tasks.Dataflow.xml
 D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Threading.Tasks.Extensions.xml
-D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\KeySecure.csproj.AssemblyReference.cache
 D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\Components\PasswordControl.g.cs
 D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\MainWindow.g.cs
 D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\Views\EncryptResultWindow.g.cs
@@ -310,3 +309,4 @@ D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\Views\DecryptResultWindow.g.cs
 D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\Views\DecryptResultWindow.baml
 D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Views\DecryptResultWindow.g.cs
 D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Views\DecryptResultWindow.baml
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\KeySecure.csproj.AssemblyReference.cache

@@ -77,7 +77,9 @@
                              VerticalContentAlignment="Center"
                              HorizontalContentAlignment="Center"
                              Margin="0 5 0 5"
-                             Text="{Binding InputText1Encr}" />
+                             Text="{Binding InputText1Encr}" 
+                             MaxLength="3"
+                             />
                     <TextBox x:Name="txtAddSecureKey2"
                              Grid.Row="1"
                              materialDesign:HintAssist.Hint="Add secure key"
@@ -85,17 +87,19 @@
                              VerticalContentAlignment="Center"
                              HorizontalContentAlignment="Center"
                              Margin="0 5 0 5"
-                             Visibility="{Binding TextBox1Visibility}"
-                             Text="{Binding InputText2Encr}" />
+                             Visibility="{Binding TextBox2Visibility}"
+                             Text="{Binding InputText2Encr}" 
+                             MaxLength ="3"/>
                     <TextBox x:Name="txtAddSecureKey3"
                              Grid.Row="2"
                              materialDesign:HintAssist.Hint="Add secure key"
                              FontSize="17"
                              VerticalContentAlignment="Center"
                              HorizontalContentAlignment="Center"
-                             Margin="0 5 0 10"
-                             Visibility="{Binding TextBox2Visibility}"
-                             Text="{Binding InputText3Encr}" />
+                             Margin="0 5 0 15"
+                             Visibility="{Binding TextBox3Visibility}"
+                             Text="{Binding InputText3Encr}" 
+                             MaxLength="3"/>
                     <Button x:Name="btnEncrypt"
                             Content="Encrypt"
                             Grid.Row="3"

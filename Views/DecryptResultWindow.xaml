@@ -21,13 +21,14 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text="Your encrypt string was decrypted successfully!"
+        <TextBlock Text="Decrypted successfully!"
                    Grid.Row="0"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Background="LightGreen"
                    Padding="10" />
         <TextBox Grid.Row="1"
+                 HorizontalContentAlignment="Center"
                  Margin="15"
                  IsReadOnly="True"
                  Text="{Binding DecryptedText}"/>

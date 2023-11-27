@@ -23,13 +23,14 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text="Your password was encrypted successfully!"
+        <TextBlock Text="Encrypted successfully!"
                    Grid.Row="0"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Background="LightGreen"
                    Padding="10" />
         <TextBox Grid.Row="1"
+                 HorizontalContentAlignment="Center"
                  Margin="15"
                  IsReadOnly="True"
                  Text="{Binding EncryptedText}"/>
