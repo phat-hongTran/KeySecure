@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Clipboard = System.Windows.Forms.Clipboard;
 using GalaSoft.MvvmLight.Command;
+using KeySecure.Views;
+using System.Windows;
 
 namespace KeySecure.ViewModels
 {
@@ -23,7 +25,7 @@ namespace KeySecure.ViewModels
                 RaisePropertyChanged(nameof(EncryptedText));
             }
         }
-        
+
         #endregion
         #region Copy to Clipboard
         private string _contentCopyButton;
@@ -76,6 +78,10 @@ namespace KeySecure.ViewModels
         {
             Clipboard.SetText(EncryptedText);
             ContentCopyButton = ContentAfterCopy;
+            if (Application.Current.MainWindow is EncryptResultWindow encryptResultWindow)
+            {
+                encryptResultWindow.Close();
+            }
         }
         #endregion
         //COMMANDS

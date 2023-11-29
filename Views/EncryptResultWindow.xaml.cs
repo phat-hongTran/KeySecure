@@ -19,11 +19,11 @@ namespace KeySecure.Views
     /// </summary>
     public partial class EncryptResultWindow : Window
     {
-        private EncryptResultViewModel viewModel;
-        public EncryptResultWindow()
+        //private EncryptResultViewModel viewModel;
+        public EncryptResultWindow(EncryptResultViewModel viewModel)
         {
             InitializeComponent();
-            viewModel = new EncryptResultViewModel();
+            //viewModel = new EncryptResultViewModel();
             DataContext = viewModel;
         }
     }

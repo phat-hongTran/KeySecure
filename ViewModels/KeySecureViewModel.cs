@@ -71,22 +71,22 @@ namespace KeySecure.ViewModels
         private Visibility _textBox3Visibility;
         private string _colorBtnAdd = "Gray";
 
-        public Visibility TextBox2Visibility
+        public Visibility InputText2Visibility
         {
             get { return _textBox2Visibility; }
             set
             {
                 _textBox2Visibility = value;
-                RaisePropertyChanged(nameof(TextBox2Visibility));
+                RaisePropertyChanged(nameof(InputText2Visibility));
             }
         }
-        public Visibility TextBox3Visibility
+        public Visibility InputText3Visibility
         {
             get { return _textBox3Visibility; }
             set
             {
                 _textBox3Visibility = value;
-                RaisePropertyChanged(nameof(TextBox3Visibility));
+                RaisePropertyChanged(nameof(InputText3Visibility));
             }
         }
         public string ColorAdd
@@ -236,13 +236,13 @@ namespace KeySecure.ViewModels
         #region Show Secure Key TextBox
         private void ToggleVisibility(object parameter)
         {
-            if (TextBox2Visibility == Visibility.Collapsed)
+            if (InputText2Visibility == Visibility.Collapsed)
             {
-                TextBox2Visibility = Visibility.Visible;
+                InputText2Visibility = Visibility.Visible;
             }
-            else if (TextBox3Visibility == Visibility.Collapsed)
+            else if (InputText3Visibility == Visibility.Collapsed)
             {
-                TextBox3Visibility = Visibility.Visible;
+                InputText3Visibility = Visibility.Visible;
                 ColorAdd = "Gray";
             }
         }
@@ -256,8 +256,8 @@ namespace KeySecure.ViewModels
                 EncryptedText = encryptedText;
                 EncryptResultViewModel resultViewModel = new EncryptResultViewModel();
                 resultViewModel.EncryptedText = encryptedText;
-                EncryptResultWindow encryptResultWindow = new EncryptResultWindow();
-                encryptResultWindow.DataContext = resultViewModel;
+                EncryptResultWindow encryptResultWindow = new EncryptResultWindow(resultViewModel);
+                //encryptResultWindow.DataContext = resultViewModel;
                 encryptResultWindow.Show();
             }
             else
@@ -299,25 +299,29 @@ namespace KeySecure.ViewModels
         {
             string decryptedText = DecryptString(Password, InputText1Encr, InputText2Encr, InputText3Encr);
             DecryptedText = decryptedText;
-            //SEPARATE STRING TO CHECK
+            //Separate string to check
             int secureKeyLenght = 3; //Limit key secure lenght = 3; 
             int mainPassWordLenght = DecryptedText.Length - (secureKeyLenght * 3);
             string mainPass = DecryptedText.Substring(0, mainPassWordLenght);
+            //Must have secureKey1 (Always show in UI). Must be input
             string secureKey1 = DecryptedText.Substring(mainPassWordLenght, secureKeyLenght);
 
             string secureKey2 = string.Empty;
             string secureKey3 = string.Empty;
-            if (InputText2Encr != null && TextBox2Visibility == Visibility.Visible && InputText3Encr != null && TextBox3Visibility == Visibility.Visible)
+            //Case 1: Both secureKey 2 & 3 were added. 
+            if (InputText2Encr != null && InputText2Visibility == Visibility.Visible && InputText3Encr != null && InputText3Visibility == Visibility.Visible)
             {
                 secureKey2 = InputText2Encr.Length >= secureKeyLenght ? InputText2Encr.Substring(0, secureKeyLenght) : InputText2Encr.PadRight(secureKeyLenght, ' ');
                 secureKey3 = InputText3Encr.Length >= secureKeyLenght ? InputText3Encr.Substring(0, secureKeyLenght) : InputText3Encr.PadRight(secureKeyLenght, ' ');
             }
-            else if (InputText2Encr == null && TextBox2Visibility == Visibility.Collapsed && InputText3Encr == null && TextBox3Visibility == Visibility.Collapsed)
+            //Case2: Both secureKey 2 & 3 were not added. 
+            else if (InputText2Encr == null && InputText2Visibility == Visibility.Collapsed && InputText3Encr == null && InputText3Visibility == Visibility.Collapsed)
             {
                 secureKey2 = "000";
                 secureKey3 = "000";
             }
-            else if (InputText2Encr != null && TextBox2Visibility == Visibility.Visible && InputText3Encr == null && TextBox3Visibility == Visibility.Collapsed)
+            //Case3: Only secureKey 2 was added. 
+            else if (InputText2Encr != null && InputText2Visibility == Visibility.Visible && InputText3Encr == null && InputText3Visibility == Visibility.Collapsed)
             {
                 secureKey2 = InputText2Encr.Length >= secureKeyLenght ? InputText2Encr.Substring(0, secureKeyLenght) : InputText2Encr.PadRight(secureKeyLenght, ' ');
                 secureKey3 = "000";
@@ -407,8 +411,8 @@ namespace KeySecure.ViewModels
             InputText1Encr = string.Empty;
             InputText2Encr = string.Empty;
             InputText3Encr = string.Empty;
-            TextBox2Visibility = Visibility.Collapsed;
-            TextBox3Visibility = Visibility.Collapsed;
+            InputText2Visibility = Visibility.Collapsed;
+            InputText3Visibility = Visibility.Collapsed;
             ColorAdd = "ForestGreen";
         }
         #endregion
@@ -439,8 +443,8 @@ namespace KeySecure.ViewModels
 
             //Visibility Add Secure Key textbox
             ToggleVisibilityCommand = new RelayCommand<object>(ToggleVisibility);
-            TextBox2Visibility = Visibility.Collapsed;
-            TextBox3Visibility = Visibility.Collapsed;
+            InputText2Visibility = Visibility.Collapsed;
+            InputText3Visibility = Visibility.Collapsed;
 
             //Show Result
             DecryptCommand = new RelayCommand(Decrypt);
