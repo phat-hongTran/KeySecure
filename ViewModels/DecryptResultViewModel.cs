@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using Clipboard = System.Windows.Forms.Clipboard;
 using GalaSoft.MvvmLight.Command;
 using System.Windows.Input;
-
+using MessageBox = System.Windows.Forms.MessageBox;
+using System.Windows;
+using KeySecure.Views;
 namespace KeySecure.ViewModels
 {
     public class DecryptResultViewModel : ViewModelBase
@@ -70,11 +72,31 @@ namespace KeySecure.ViewModels
         }
         #endregion
         //METHOD
+        private bool isCopied;
         #region Copy to Clipboard
         public void CopyText()
         {
-            Clipboard.SetText(DecryptedText);
-            ContentCopyButton = ContentAfterCopy;
+            if (!isCopied)
+            {
+                Clipboard.SetText(DecryptedText);
+                ContentCopyButton = ContentAfterCopy;
+                isCopied = true;
+            }
+            else
+            {
+                CloseWindow();
+            }
+        }
+        private void CloseWindow()
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window is DecryptResultWindow)
+                {
+                    window.Close();
+                    break;
+                }
+            }
         }
         #endregion
         //COMMANDS
@@ -87,7 +109,6 @@ namespace KeySecure.ViewModels
         {
             ContentCopyButton = ContentBeforeCopy;
             CopyToClipBoardCommand = new RelayCommand(CopyText);
-
         }
     }
 }

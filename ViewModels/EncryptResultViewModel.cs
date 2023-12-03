@@ -73,14 +73,30 @@ namespace KeySecure.ViewModels
         }
         #endregion
         //METHODS
+        private bool isCopied = false;
         #region Copy to Clipboard
         public void CopyText()
         {
-            Clipboard.SetText(EncryptedText);
-            ContentCopyButton = ContentAfterCopy;
-            if (Application.Current.MainWindow is EncryptResultWindow encryptResultWindow)
+            if (!isCopied)
             {
-                encryptResultWindow.Close();
+                Clipboard.SetText(EncryptedText);
+                ContentCopyButton = ContentAfterCopy;
+                isCopied = true;
+            }
+            else
+            {
+                CloseWindow();
+            }
+        }
+        private void CloseWindow()
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window is EncryptResultWindow)
+                {
+                    window.Close();
+                    break;
+                }
             }
         }
         #endregion
