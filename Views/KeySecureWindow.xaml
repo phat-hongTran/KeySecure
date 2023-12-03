@@ -78,7 +78,6 @@
                              HorizontalContentAlignment="Center"
                              Margin="0 5 0 5"
                              Text="{Binding InputText1Encr}" 
-                             MaxLength="3"
                              />
                     <TextBox x:Name="txtAddSecureKey2"
                              Grid.Row="1"
@@ -88,8 +87,7 @@
                              HorizontalContentAlignment="Center"
                              Margin="0 5 0 5"
                              Visibility="{Binding InputText2Visibility}"
-                             Text="{Binding InputText2Encr}" 
-                             MaxLength ="3"/>
+                             Text="{Binding InputText2Encr}" />
                     <TextBox x:Name="txtAddSecureKey3"
                              Grid.Row="2"
                              materialDesign:HintAssist.Hint="Add secure key"
@@ -98,8 +96,7 @@
                              HorizontalContentAlignment="Center"
                              Margin="0 5 0 15"
                              Visibility="{Binding InputText3Visibility}"
-                             Text="{Binding InputText3Encr}" 
-                             MaxLength="3"/>
+                             Text="{Binding InputText3Encr}" />
                     <Grid Grid.Row="3">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>

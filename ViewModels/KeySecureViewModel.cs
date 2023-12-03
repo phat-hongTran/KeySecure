@@ -299,33 +299,50 @@ namespace KeySecure.ViewModels
         {
             string decryptedText = DecryptString(Password, InputText1Encr, InputText2Encr, InputText3Encr);
             DecryptedText = decryptedText;
-            //Separate string to check
-            int secureKeyLenght = 3; //Limit key secure lenght = 3; 
-            int mainPassWordLenght = DecryptedText.Length - (secureKeyLenght * 3);
-            string mainPass = DecryptedText.Substring(0, mainPassWordLenght);
-            //Must have secureKey1 (Always show in UI). Must be input
-            string secureKey1 = DecryptedText.Substring(mainPassWordLenght, secureKeyLenght);
+            int secureKeyLenght2;
+            int secureKeyLenght3;
+            //Split string to check
+            int secureKeyLenght1 = InputText1Encr.Length;
+            if (!string.IsNullOrEmpty(InputText2Encr) && !string.IsNullOrEmpty(InputText3Encr))
+            {
+                secureKeyLenght2 = InputText2Encr.Length;
+                secureKeyLenght3 = InputText3Encr.Length;
+            }
+            else
+            {
+                secureKeyLenght2 = 3;
+                secureKeyLenght3 = 3;
+            }
+            
+            int mainPassWordLenght = DecryptedText.Length - (secureKeyLenght1 + secureKeyLenght2 + secureKeyLenght3);
+            string mainPass = DecryptedText.Substring(0, mainPassWordLenght); //Final result
 
-            string secureKey2 = string.Empty;
-            string secureKey3 = string.Empty;
+            string secureKey1 = DecryptedText.Substring(DecryptedText.Length - secureKeyLenght3 - secureKeyLenght2 - secureKeyLenght1, secureKeyLenght1);
+            string secureKey2 = (DecryptedText.Substring(DecryptedText.Length - secureKeyLenght3 - secureKeyLenght2, secureKeyLenght2)) ?? "000";
+            string secureKey3 = DecryptedText.Substring(DecryptedText.Length - secureKeyLenght3, secureKeyLenght3) ?? "000";
+
+
+
+            //string secureKey2 = string.Empty;
+            //string secureKey1 = string.Empty;
             //Case 1: Both secureKey 2 & 3 were added. 
-            if (InputText2Encr != null && InputText2Visibility == Visibility.Visible && InputText3Encr != null && InputText3Visibility == Visibility.Visible)
-            {
-                secureKey2 = InputText2Encr.Length >= secureKeyLenght ? InputText2Encr.Substring(0, secureKeyLenght) : InputText2Encr.PadRight(secureKeyLenght, ' ');
-                secureKey3 = InputText3Encr.Length >= secureKeyLenght ? InputText3Encr.Substring(0, secureKeyLenght) : InputText3Encr.PadRight(secureKeyLenght, ' ');
-            }
+            //if (InputText2Encr != null && InputText2Visibility == Visibility.Visible && InputText3Encr != null && InputText3Visibility == Visibility.Visible)
+            //{
+            //    secureKey2 = InputText2Encr.Length >= secureKeyLenght ? InputText2Encr.Substring(0, secureKeyLenght) : InputText2Encr.PadRight(secureKeyLenght, ' ');
+            //    secureKey3 = InputText3Encr.Length >= secureKeyLenght ? InputText3Encr.Substring(0, secureKeyLenght) : InputText3Encr.PadRight(secureKeyLenght, ' ');
+            //}
             //Case2: Both secureKey 2 & 3 were not added. 
-            else if (InputText2Encr == null && InputText2Visibility == Visibility.Collapsed && InputText3Encr == null && InputText3Visibility == Visibility.Collapsed)
-            {
-                secureKey2 = "000";
-                secureKey3 = "000";
-            }
-            //Case3: Only secureKey 2 was added. 
-            else if (InputText2Encr != null && InputText2Visibility == Visibility.Visible && InputText3Encr == null && InputText3Visibility == Visibility.Collapsed)
-            {
-                secureKey2 = InputText2Encr.Length >= secureKeyLenght ? InputText2Encr.Substring(0, secureKeyLenght) : InputText2Encr.PadRight(secureKeyLenght, ' ');
-                secureKey3 = "000";
-            }
+            //else if (InputText2Encr == null && InputText2Visibility == Visibility.Collapsed && InputText3Encr == null && InputText3Visibility == Visibility.Collapsed)
+            //{
+            //    secureKey2 = "000";
+            //    secureKey3 = "000";
+            //}
+            ////Case3: Only secureKey 2 was added. 
+            //else if (InputText2Encr != null && InputText2Visibility == Visibility.Visible && InputText3Encr == null && InputText3Visibility == Visibility.Collapsed)
+            //{
+            //    secureKey2 = InputText2Encr.Length >= secureKeyLenght ? InputText2Encr.Substring(0, secureKeyLenght) : InputText2Encr.PadRight(secureKeyLenght, ' ');
+            //    secureKey3 = "000";
+            //}
             string decryptedMainPassWord = string.Empty;
             if (secureKey1 == InputText1Encr && (secureKey2 == "000" || secureKey2 == InputText2Encr) && (secureKey3 == "000" || secureKey3 == InputText3Encr))
             {
@@ -348,7 +365,6 @@ namespace KeySecure.ViewModels
         {
             try
             {
-
                 KeySecureViewModel viewModel = new KeySecureViewModel();
                 string hashCode = viewModel.HashCode(input1, input2, input3);
                 byte[] data = Convert.FromBase64String(mainEncrString);
