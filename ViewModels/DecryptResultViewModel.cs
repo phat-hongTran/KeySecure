@@ -3,29 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using Clipboard = System.Windows.Forms.Clipboard;
 using GalaSoft.MvvmLight.Command;
-using KeySecure.Views;
+using System.Windows.Input;
+using MessageBox = System.Windows.Forms.MessageBox;
 using System.Windows;
-
+using KeySecure.Views;
 namespace KeySecure.ViewModels
 {
-    public class EncryptResultViewModel : ViewModelBase
+    public class DecryptResultViewModel : ViewModelBase
     {
         //PROPERTIES
         #region Show Result Dailog
-        private string _encryptedText;
-        public string EncryptedText
+        private string _decryptedText;
+        public string DecryptedText
         {
-            get { return _encryptedText; }
+            get { return _decryptedText; }
             set
             {
-                _encryptedText = value;
-                RaisePropertyChanged(nameof(EncryptedText));
+                _decryptedText = value;
+                RaisePropertyChanged(nameof(DecryptedText));
             }
         }
-
         #endregion
         #region Copy to Clipboard
         private string _contentCopyButton;
@@ -72,14 +71,14 @@ namespace KeySecure.ViewModels
             }
         }
         #endregion
-        //METHODS
-        private bool isCopied = false;
+        //METHOD
+        private bool isCopied;
         #region Copy to Clipboard
         public void CopyText()
         {
             if (!isCopied)
             {
-                Clipboard.SetText(EncryptedText);
+                Clipboard.SetText(DecryptedText);
                 ContentCopyButton = ContentAfterCopy;
                 isCopied = true;
             }
@@ -92,7 +91,7 @@ namespace KeySecure.ViewModels
         {
             foreach (Window window in Application.Current.Windows)
             {
-                if (window is EncryptResultWindow)
+                if (window is DecryptResultWindow)
                 {
                     window.Close();
                     break;
@@ -106,11 +105,11 @@ namespace KeySecure.ViewModels
         #endregion
         //CONSTRUCTOR
         //Copy To Clipboar
-        public EncryptResultViewModel()
+        public DecryptResultViewModel()
         {
             ContentCopyButton = ContentBeforeCopy;
             CopyToClipBoardCommand = new RelayCommand(CopyText);
-
         }
     }
 }
+

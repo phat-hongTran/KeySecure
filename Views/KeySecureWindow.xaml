@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KeySecure"
         xmlns:Components="clr-namespace:KeySecure.Components"
+        xmlns:Converter="clr-namespace:KeySecure.Converter"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -18,6 +19,10 @@
         Title="Key Secure"
         Height="330"
         Width="400">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <Converter:ConcatenationConverter x:Key="ConcatenationConverter"/>
+    </Window.Resources>
     <StackPanel>
         <Grid>
             <Grid.RowDefinitions>
@@ -28,7 +33,7 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
-                <ColumnDefinition />
+                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <!--BASE-->
@@ -72,7 +77,8 @@
                              VerticalContentAlignment="Center"
                              HorizontalContentAlignment="Center"
                              Margin="0 5 0 5"
-                             Text="{Binding InputText1}" />
+                             Text="{Binding InputText1Encr}" 
+                             />
                     <TextBox x:Name="txtAddSecureKey2"
                              Grid.Row="1"
                              materialDesign:HintAssist.Hint="Add secure key"
@@ -80,23 +86,37 @@
                              VerticalContentAlignment="Center"
                              HorizontalContentAlignment="Center"
                              Margin="0 5 0 5"
-                             Visibility="{Binding TextBox1Visibility}"
-                             Text="{Binding InputText2}" />
+                             Visibility="{Binding InputText2Visibility}"
+                             Text="{Binding InputText2Encr}" />
                     <TextBox x:Name="txtAddSecureKey3"
                              Grid.Row="2"
                              materialDesign:HintAssist.Hint="Add secure key"
                              FontSize="17"
                              VerticalContentAlignment="Center"
                              HorizontalContentAlignment="Center"
-                             Margin="0 5 0 10"
-                             Visibility="{Binding TextBox2Visibility}"
-                             Text="{Binding InputText3}" />
-                    <Button x:Name="btnExecute"                          
-                            Content="{Binding ButtonTitle, UpdateSourceTrigger=PropertyChanged}"
-                            Grid.Row="3"
+                             Margin="0 5 0 15"
+                             Visibility="{Binding InputText3Visibility}"
+                             Text="{Binding InputText3Encr}" />
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button Content="Reset" Margin="0 0 15 0" 
+                                Command="{Binding ResetToDefault}"/>
+                        <Button x:Name="btnEncrypt"
+                            Content="Encrypt"                        
                             Grid.Column="1"
                             Background="DarkGreen"
-                            Command="{Binding EncryptCommand}" />
+                            Command="{Binding EncryptCommand}"
+                            Visibility="{Binding IsEncryptButtonVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
+                        <Button x:Name="btnDecrypt"
+                            Content="Decrypt"                           
+                            Grid.Column="1"
+                            Background="DarkGreen"
+                            Command="{Binding DecryptCommand}"
+                            Visibility="{Binding IsDecryptButtonVisible , Converter={StaticResource BoolToVisibilityConverter}}" />
+                    </Grid>
                 </Grid>
             </StackPanel>
             <Button Grid.Row="3"

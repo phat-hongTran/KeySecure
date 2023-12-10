@@ -12,18 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using KeySecure.ViewModels;
+
 namespace KeySecure.Views
 {
     /// <summary>
-    /// Interaction logic for EncryptResultWindow.xaml
+    /// Interaction logic for DecryptResultWindow.xaml
     /// </summary>
-    public partial class EncryptResultWindow : Window
+    public partial class DecryptResultWindow : Window
     {
-        //private EncryptResultViewModel viewModel;
-        public EncryptResultWindow(EncryptResultViewModel viewModel)
+        private DecryptResultViewModel viewModel;
+        public DecryptResultWindow()
         {
             InitializeComponent();
-            //viewModel = new EncryptResultViewModel();
+            viewModel = new DecryptResultViewModel();
             DataContext = viewModel;
         }
     }

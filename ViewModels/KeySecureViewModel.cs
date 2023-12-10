@@ -14,6 +14,7 @@ using System.Security;
 using System.Windows.Forms;
 using Clipboard = System.Windows.Forms.Clipboard;
 using System.IO;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace KeySecure.ViewModels
 {
@@ -46,11 +47,9 @@ namespace KeySecure.ViewModels
                 RaisePropertyChanged(nameof(IsDecrypt));
                 UpdateTitle(value);
                 UpdateHint(value);
-                UpdateButtonTitle(value);
+                UpdateButtonVisibility();
             }
         }
-
-
         #endregion
         #region Update Hint in PasswordBox
         private string _PassWordBoxHint;
@@ -67,42 +66,27 @@ namespace KeySecure.ViewModels
             }
         }
         #endregion
-        #region Update button name Encrypt-Decrypt
-        private string _buttonTitle;
-        private const string encryptButton = "Encrypt";
-        private const string decryptButton = "Decrypt";
-
-        public string ButtonTitle
-        {
-            get { return _buttonTitle; }
-            set
-            {
-                _buttonTitle = value;
-                RaisePropertyChanged(nameof(ButtonTitle));
-            }
-        }
-        #endregion
         #region Show Secure Key TextBox
-        private Visibility _textBox1Visibility;
         private Visibility _textBox2Visibility;
+        private Visibility _textBox3Visibility;
         private string _colorBtnAdd = "Gray";
 
-        public Visibility TextBox1Visibility
-        {
-            get { return _textBox1Visibility; }
-            set
-            {
-                _textBox1Visibility = value;
-                RaisePropertyChanged(nameof(TextBox1Visibility));
-            }
-        }
-        public Visibility TextBox2Visibility
+        public Visibility InputText2Visibility
         {
             get { return _textBox2Visibility; }
             set
             {
                 _textBox2Visibility = value;
-                RaisePropertyChanged(nameof(TextBox2Visibility));
+                RaisePropertyChanged(nameof(InputText2Visibility));
+            }
+        }
+        public Visibility InputText3Visibility
+        {
+            get { return _textBox3Visibility; }
+            set
+            {
+                _textBox3Visibility = value;
+                RaisePropertyChanged(nameof(InputText3Visibility));
             }
         }
         public string ColorAdd
@@ -132,31 +116,40 @@ namespace KeySecure.ViewModels
                 RaisePropertyChanged(nameof(Password));
             }
         }
-        public string InputText1
+        public string InputText1Encr
         {
             get { return _inputText1; }
             set
             {
-                _inputText1 = value;
-                RaisePropertyChanged(nameof(InputText1));
+                if (value?.Length <= 3)
+                {
+                    _inputText1 = value;
+                    RaisePropertyChanged(nameof(InputText1Encr));
+                }
             }
         }
-        public string InputText2
+        public string InputText2Encr
         {
             get { return _inputText2; }
             set
             {
-                _inputText2 = value;
-                RaisePropertyChanged(nameof(InputText2));
+                if (value?.Length <= 3)
+                {
+                    _inputText2 = value;
+                    RaisePropertyChanged(nameof(InputText2Encr));
+                }
             }
         }
-        public string InputText3
+        public string InputText3Encr
         {
             get { return _inputText3; }
             set
             {
-                _inputText3 = value;
-                RaisePropertyChanged(nameof(InputText3));
+                if (value?.Length <= 3)
+                {
+                    _inputText3 = value;
+                    RaisePropertyChanged(nameof(InputText3Encr));
+                }
             }
         }
         public string EncryptedText
@@ -190,6 +183,42 @@ namespace KeySecure.ViewModels
             }
         }
         #endregion
+        #region Show Encrypt - Decrypt button
+
+        private bool isEncryptionEnabled;
+        public bool IsEncryptionEnabled
+        {
+            get { return isEncryptionEnabled; }
+            set
+            {
+                isEncryptionEnabled = value;
+                RaisePropertyChanged(nameof(IsEncryptionEnabled));
+                UpdateButtonVisibility();
+            }
+        }
+        private bool isEncryptButtonVisible;
+        public bool IsEncryptButtonVisible
+        {
+            get { return isEncryptButtonVisible; }
+            set
+            {
+                isEncryptButtonVisible = value;
+                RaisePropertyChanged(nameof(IsEncryptButtonVisible));
+            }
+        }
+
+        private bool isDecryptButtonVisible;
+        public bool IsDecryptButtonVisible
+        {
+            get { return isDecryptButtonVisible; }
+            set
+            {
+                isDecryptButtonVisible = value;
+                RaisePropertyChanged(nameof(IsDecryptButtonVisible));
+            }
+        }
+
+        #endregion
 
         //METHODS
         #region Update Title
@@ -204,22 +233,16 @@ namespace KeySecure.ViewModels
             PassWordBoxHint = isDecrypt ? decryptHint : encryptHint;
         }
         #endregion
-        #region Update Button Title
-        private void UpdateButtonTitle(bool isDecrypt)
-        {
-            ButtonTitle = isDecrypt ? decryptButton : encryptButton;
-        }
-        #endregion
         #region Show Secure Key TextBox
         private void ToggleVisibility(object parameter)
         {
-            if (TextBox1Visibility == Visibility.Collapsed)
+            if (InputText2Visibility == Visibility.Collapsed)
             {
-                TextBox1Visibility = Visibility.Visible;
+                InputText2Visibility = Visibility.Visible;
             }
-            else if (TextBox2Visibility == Visibility.Collapsed)
+            else if (InputText3Visibility == Visibility.Collapsed)
             {
-                TextBox2Visibility = Visibility.Visible;
+                InputText3Visibility = Visibility.Visible;
                 ColorAdd = "Gray";
             }
         }
@@ -227,37 +250,42 @@ namespace KeySecure.ViewModels
         #region Logic Encryption
         private void Encrypt()
         {
-            string encryptedText = EncryptString(_password, InputText1, InputText2, InputText3);
-            EncryptedText = encryptedText;
-            //Binding to Result Window
-            EncryptResultViewModel resultViewModel = new EncryptResultViewModel();
-            resultViewModel.EncryptedText = encryptedText;
-            EncryptResultWindow encryptResultWindow = new EncryptResultWindow();
-            encryptResultWindow.DataContext = resultViewModel;
-            encryptResultWindow.Show();
+            if (!string.IsNullOrEmpty(InputText1Encr))
+            {
+                string encryptedText = EncryptString(Password, InputText1Encr, InputText2Encr, InputText3Encr);
+                EncryptedText = encryptedText;
+                EncryptResultViewModel resultViewModel = new EncryptResultViewModel();
+                resultViewModel.EncryptedText = encryptedText;
+                EncryptResultWindow encryptResultWindow = new EncryptResultWindow(resultViewModel);
+                //encryptResultWindow.DataContext = resultViewModel;
+                encryptResultWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please input Key secure");
+                return;
+            }
         }
 
-        public static string EncryptString(string mainPw, string input1, string input2, string input3)
+        public static string EncryptString(string mainPassword, string input1, string input2, string input3)
         {
-            string concatenatedString = mainPw + input1 + input2 + input3;
-            string EncryptionKey = input1 + input2 + input3;
-            byte[] clearBytes = Encoding.Unicode.GetBytes(concatenatedString);
-            using (Aes encryptor = Aes.Create())
+            KeySecureViewModel viewModel = new KeySecureViewModel();
+            string hashCode = viewModel.HashCode(input1, input2, input3);
+            string concateString = mainPassword + hashCode;
+            byte[] data = Encoding.UTF8.GetBytes(concateString);
+            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
             {
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
-                encryptor.Key = pdb.GetBytes(32);
-                encryptor.IV = pdb.GetBytes(16);
-                using (MemoryStream ms = new MemoryStream())
+                byte[] keys = md5.ComputeHash(Encoding.UTF8.GetBytes(hashCode));
+                using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
                 {
-                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
-                    {
-                        cs.Write(clearBytes, 0, clearBytes.Length);
-                        cs.Close();
-                    }
-                    concatenatedString = Convert.ToBase64String(ms.ToArray());
+                    ICryptoTransform transform = tripDes.CreateEncryptor();
+                    byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
+                    string enCryptmainPassword = Convert.ToBase64String(results, 0, results.Length);
+
+                    return enCryptmainPassword;
                 }
             }
-            return concatenatedString.ToString();
+
         }
         #endregion
         #region Copy to Clipboard
@@ -269,44 +297,115 @@ namespace KeySecure.ViewModels
         #region Logic Decrypt
         private void Decrypt()
         {
-            string decryptedText = DecryptString(_password, InputText1, InputText2, InputText3);
+            string decryptedText = DecryptString(Password, InputText1Encr, InputText2Encr, InputText3Encr);
             DecryptedText = decryptedText;
-            //Binding to Result Window
-            EncryptResultViewModel resultViewModel = new EncryptResultViewModel();
-            resultViewModel.EncryptedText = decryptedText;
-            EncryptResultWindow encryptResultWindow = new EncryptResultWindow();
-            encryptResultWindow.DataContext = resultViewModel;
-            encryptResultWindow.Show();
+            int secureKeyLenght1 = InputText1Encr.Length;
+            int secureKeyLenght2;
+            int secureKeyLenght3;
+            if (!string.IsNullOrEmpty(InputText2Encr) && !string.IsNullOrEmpty(InputText3Encr))
+            {
+                secureKeyLenght2 = InputText2Encr.Length;
+                secureKeyLenght3 = InputText3Encr.Length;
+            }
+            else
+            {
+                secureKeyLenght2 = 3;
+                secureKeyLenght3 = 3;
+            }         
+            int mainPassWordLenght = DecryptedText.Length - (secureKeyLenght1 + secureKeyLenght2 + secureKeyLenght3);
+            string mainPass = DecryptedText.Substring(0, mainPassWordLenght); //Final result
+
+            string secureKey1 = DecryptedText.Substring(DecryptedText.Length - secureKeyLenght3 - secureKeyLenght2 - secureKeyLenght1, secureKeyLenght1);
+            string secureKey2 = (DecryptedText.Substring(DecryptedText.Length - secureKeyLenght3 - secureKeyLenght2, secureKeyLenght2)) ?? "000";
+            string secureKey3 = DecryptedText.Substring(DecryptedText.Length - secureKeyLenght3, secureKeyLenght3) ?? "000";
+
+            string decryptedMainPassWord = string.Empty;
+            if (secureKey1 == InputText1Encr && (secureKey2 == "000" || secureKey2 == InputText2Encr) && (secureKey3 == "000" || secureKey3 == InputText3Encr))
+            {
+                decryptedMainPassWord = mainPass;
+            }
+            DecryptResultViewModel resultViewModel = new DecryptResultViewModel();
+            resultViewModel.DecryptedText = decryptedMainPassWord;
+            DecryptResultWindow decryptResultWindow = new DecryptResultWindow();
+            decryptResultWindow.DataContext = resultViewModel;
+            if (!string.IsNullOrEmpty(decryptedMainPassWord))
+            {
+                decryptResultWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Secure Key is not correct!");
+            }
         }
-        public static string DecryptString(string mainEncr, string input1, string input2, string input3)
+        public static string DecryptString(string mainEncrString, string input1, string input2, string input3)
         {
-            //string concatenatedEcrString = mainEncr + input1 + input2 + input3;
-            string EncryptionKey = input1 + input2 + input3; ;
-            mainEncr = mainEncr.Replace(" ", "+");
             try
             {
-                byte[] cipherBytes = Convert.FromBase64String(mainEncr);
-                using (Aes encryptor = Aes.Create())
+                KeySecureViewModel viewModel = new KeySecureViewModel();
+                string hashCode = viewModel.HashCode(input1, input2, input3);
+                byte[] data = Convert.FromBase64String(mainEncrString);
+
+                using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
                 {
-                    Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
-                    encryptor.Key = pdb.GetBytes(32);
-                    encryptor.IV = pdb.GetBytes(16);
-                    using (MemoryStream ms = new MemoryStream())
+                    byte[] keys = md5.ComputeHash(Encoding.UTF8.GetBytes(hashCode));
+                    using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
                     {
-                        using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
-                        {
-                            cs.Write(cipherBytes, 0, cipherBytes.Length);
-                            cs.Close();
-                        }
-                        mainEncr = Encoding.Unicode.GetString(ms.ToArray());
+                        ICryptoTransform transform = tripDes.CreateDecryptor();
+                        byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
+                        string decryptStringResult = Encoding.UTF8.GetString(results);
+
+                        return decryptStringResult;
                     }
                 }
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.Application.Exit();
+                return ex.Message.ToString();
             }
-            return mainEncr.ToString();
+        }
+        //Check input of Key Secure
+        public string HashCode(string input1, string input2, string input3)
+        {
+            string hash;
+            if (!string.IsNullOrEmpty(input2) && string.IsNullOrEmpty(input3))
+            {
+                hash = input1 + input2 + "000";
+            }
+            else if (string.IsNullOrEmpty(input2) && string.IsNullOrEmpty(input3))
+            {
+                hash = input1 + "000" + "000";
+            }
+            else
+            {
+                hash = input1 + input2 + input3;
+            }
+            return hash;
+        }
+        #endregion
+        #region Show Encrypt - Decrypt button
+        private void UpdateButtonVisibility()
+        {
+            if (!IsDecrypt)
+            {
+                IsEncryptButtonVisible = true;
+                IsDecryptButtonVisible = false;
+            }
+            else
+            {
+                IsEncryptButtonVisible = false;
+                IsDecryptButtonVisible = true;
+            }
+        }
+        #endregion
+        #region Reset to defauld
+        private void ResetDefault()
+        {
+            InputText1Encr = string.Empty;
+            InputText2Encr = string.Empty;
+            InputText3Encr = string.Empty;
+            InputText2Visibility = Visibility.Collapsed;
+            InputText3Visibility = Visibility.Collapsed;
+            ColorAdd = "ForestGreen";
         }
         #endregion
         //COMMANDS
@@ -315,9 +414,16 @@ namespace KeySecure.ViewModels
         #endregion
         #region Logic Encryption
         public ICommand EncryptCommand { get; }
+        //public ICommand DecryptCommand { get; }
         #endregion
         #region Copy to Clipboard 
         public ICommand CopyToClipBoardCommand { get; }
+        #endregion
+        #region Logic Decrypt
+        public ICommand DecryptCommand { get; }
+        #endregion
+        #region Reset to defauld
+        public ICommand ResetToDefault { get; }
         #endregion
         //Constructor
         #region Constructor
@@ -329,20 +435,17 @@ namespace KeySecure.ViewModels
 
             //Visibility Add Secure Key textbox
             ToggleVisibilityCommand = new RelayCommand<object>(ToggleVisibility);
-            TextBox1Visibility = Visibility.Collapsed;
-            TextBox2Visibility = Visibility.Collapsed;
+            InputText2Visibility = Visibility.Collapsed;
+            InputText3Visibility = Visibility.Collapsed;
 
             //Show Result
-            if (IsDecrypt == true)
-            {
-                EncryptCommand = new RelayCommand(Decrypt);
-            }
-            else
-            {
-                EncryptCommand = new RelayCommand(Encrypt);
-            }
+            DecryptCommand = new RelayCommand(Decrypt);
+            EncryptCommand = new RelayCommand(Encrypt);
+
             //Copy To Clipboar
             CopyToClipBoardCommand = new RelayCommand(CopyText);
+            //Reset to defauld
+            ResetToDefault = new RelayCommand(ResetDefault);
         }
         #endregion
     }

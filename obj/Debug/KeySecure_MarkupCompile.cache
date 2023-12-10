@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\HUY\7.NET C SHARP\SecureApp\App.xaml
-4-14380101
+51548512887
 
-12280723454
+151324380593
 138-1179218443
-Components\PasswordControl.xaml;MainWindow.xaml;Views\EncryptResultWindow.xaml;Views\KeySecureWindow.xaml;
+Components\PasswordControl.xaml;MainWindow.xaml;Views\DecryptResultWindow.xaml;Views\EncryptResultWindow.xaml;Views\KeySecureWindow.xaml;
 
 False
 
