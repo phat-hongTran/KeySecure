@@ -1,0 +1,312 @@
+D:\HUY\7.NET C SHARP\KeySecure\bin\Debug\KeySecure.exe.config
+D:\HUY\7.NET C SHARP\KeySecure\bin\Debug\KeySecure.exe
+D:\HUY\7.NET C SHARP\KeySecure\bin\Debug\KeySecure.pdb
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\KeySecure.csproj.AssemblyReference.cache
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\KeySecure.csproj.SuggestedBindingRedirects.cache
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\MainWindow.g.cs
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\App.g.cs
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\KeySecure_MarkupCompile.cache
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\KeySecure_MarkupCompile.lref
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\MainWindow.baml
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\KeySecure.g.resources
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\KeySecure.Properties.Resources.resources
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\KeySecure.csproj.GenerateResource.cache
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\KeySecure.csproj.CoreCompileInputs.cache
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\KeySecure.exe
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\KeySecure.pdb
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\Views\KeySecureWindow.g.cs
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\Views\KeySecureWindow.baml
+D:\HUY\7.NET C SHARP\KeySecure\bin\Debug\MaterialDesignColors.dll
+D:\HUY\7.NET C SHARP\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\HUY\7.NET C SHARP\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\HUY\7.NET C SHARP\KeySecure\bin\Debug\MaterialDesignColors.pdb
+D:\HUY\7.NET C SHARP\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\HUY\7.NET C SHARP\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\HUY\7.NET C SHARP\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\HUY\7.NET C SHARP\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\App.baml
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\KeySecure.csproj.CopyComplete
+D:\HUY\7.NET C SHARP\KeySecure\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\KeySecure.exe.config
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\KeySecure.exe
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\KeySecure.pdb
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\MaterialDesignColors.dll
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\MaterialDesignColors.pdb
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.csproj.AssemblyReference.cache
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\MainWindow.g.cs
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\Views\KeySecureWindow.g.cs
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\App.g.cs
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure_MarkupCompile.cache
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure_MarkupCompile.lref
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\App.baml
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\MainWindow.baml
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\Views\KeySecureWindow.baml
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.g.resources
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.Properties.Resources.resources
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.csproj.GenerateResource.cache
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.csproj.CoreCompileInputs.cache
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.csproj.CopyComplete
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.exe
+D:\2. Personal\0. Learning\0. Side Projects\KeySecure\obj\Debug\KeySecure.pdb
+D:\HUY\KeySecure\bin\Debug\KeySecure.exe.config
+D:\HUY\KeySecure\bin\Debug\KeySecure.exe
+D:\HUY\KeySecure\bin\Debug\KeySecure.pdb
+D:\HUY\KeySecure\bin\Debug\MaterialDesignColors.dll
+D:\HUY\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\HUY\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\HUY\KeySecure\bin\Debug\MaterialDesignColors.pdb
+D:\HUY\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\HUY\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\HUY\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\HUY\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\HUY\KeySecure\obj\Debug\KeySecure.csproj.AssemblyReference.cache
+D:\HUY\KeySecure\obj\Debug\KeySecure.csproj.SuggestedBindingRedirects.cache
+D:\HUY\KeySecure\obj\Debug\MainWindow.g.cs
+D:\HUY\KeySecure\obj\Debug\Views\KeySecureWindow.g.cs
+D:\HUY\KeySecure\obj\Debug\App.g.cs
+D:\HUY\KeySecure\obj\Debug\KeySecure_MarkupCompile.cache
+D:\HUY\KeySecure\obj\Debug\KeySecure_MarkupCompile.lref
+D:\HUY\KeySecure\obj\Debug\App.baml
+D:\HUY\KeySecure\obj\Debug\MainWindow.baml
+D:\HUY\KeySecure\obj\Debug\Views\KeySecureWindow.baml
+D:\HUY\KeySecure\obj\Debug\KeySecure.g.resources
+D:\HUY\KeySecure\obj\Debug\KeySecure.Properties.Resources.resources
+D:\HUY\KeySecure\obj\Debug\KeySecure.csproj.GenerateResource.cache
+D:\HUY\KeySecure\obj\Debug\KeySecure.csproj.CoreCompileInputs.cache
+D:\HUY\KeySecure\obj\Debug\KeySecure.csproj.CopyComplete
+D:\HUY\KeySecure\obj\Debug\KeySecure.exe
+D:\HUY\KeySecure\obj\Debug\KeySecure.pdb
+D:\HUY\KeySecure\bin\Debug\CommonServiceLocator.dll
+D:\HUY\KeySecure\bin\Debug\Dawn.Guard.dll
+D:\HUY\KeySecure\bin\Debug\GalaSoft.MvvmLight.dll
+D:\HUY\KeySecure\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+D:\HUY\KeySecure\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+D:\HUY\KeySecure\bin\Debug\Newtonsoft.Json.dll
+D:\HUY\KeySecure\bin\Debug\System.Buffers.dll
+D:\HUY\KeySecure\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\HUY\KeySecure\bin\Debug\System.IO.Pipelines.dll
+D:\HUY\KeySecure\bin\Debug\System.Memory.dll
+D:\HUY\KeySecure\bin\Debug\System.Numerics.Vectors.dll
+D:\HUY\KeySecure\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\HUY\KeySecure\bin\Debug\System.Threading.Channels.dll
+D:\HUY\KeySecure\bin\Debug\System.Threading.Tasks.Dataflow.dll
+D:\HUY\KeySecure\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\HUY\KeySecure\bin\Debug\System.Windows.Interactivity.dll
+D:\HUY\KeySecure\bin\Debug\Dawn.Guard.xml
+D:\HUY\KeySecure\bin\Debug\GalaSoft.MvvmLight.pdb
+D:\HUY\KeySecure\bin\Debug\GalaSoft.MvvmLight.xml
+D:\HUY\KeySecure\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+D:\HUY\KeySecure\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+D:\HUY\KeySecure\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+D:\HUY\KeySecure\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+D:\HUY\KeySecure\bin\Debug\Newtonsoft.Json.xml
+D:\HUY\KeySecure\bin\Debug\System.Buffers.xml
+D:\HUY\KeySecure\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\HUY\KeySecure\bin\Debug\System.IO.Pipelines.xml
+D:\HUY\KeySecure\bin\Debug\System.Memory.xml
+D:\HUY\KeySecure\bin\Debug\System.Numerics.Vectors.xml
+D:\HUY\KeySecure\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\HUY\KeySecure\bin\Debug\System.Threading.Channels.xml
+D:\HUY\KeySecure\bin\Debug\System.Threading.Tasks.Dataflow.xml
+D:\HUY\KeySecure\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\KeySecure.exe.config
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\KeySecure.exe
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\KeySecure.pdb
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\CommonServiceLocator.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\Dawn.Guard.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\GalaSoft.MvvmLight.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\MaterialDesignColors.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\Newtonsoft.Json.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Buffers.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.IO.Pipelines.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Memory.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Numerics.Vectors.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Threading.Channels.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Threading.Tasks.Dataflow.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Windows.Interactivity.dll
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\Dawn.Guard.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\GalaSoft.MvvmLight.pdb
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\GalaSoft.MvvmLight.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\MaterialDesignColors.pdb
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\Newtonsoft.Json.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Buffers.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.IO.Pipelines.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Memory.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Numerics.Vectors.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Threading.Channels.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Threading.Tasks.Dataflow.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\KeySecure.csproj.AssemblyReference.cache
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\MainWindow.g.cs
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\Views\KeySecureWindow.g.cs
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\App.g.cs
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\KeySecure_MarkupCompile.cache
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\KeySecure_MarkupCompile.lref
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\App.baml
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\MainWindow.baml
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\Views\KeySecureWindow.baml
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\KeySecure.g.resources
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\KeySecure.Properties.Resources.resources
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\KeySecure.csproj.GenerateResource.cache
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\KeySecure.csproj.CoreCompileInputs.cache
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\KeySecure.csproj.CopyComplete
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\KeySecure.exe
+D:\4.PERSONAL\5.CODING\17.SecureApp\obj\Debug\KeySecure.pdb
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\KeySecure.exe.config
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\KeySecure.exe
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\KeySecure.pdb
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\CommonServiceLocator.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\Dawn.Guard.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\GalaSoft.MvvmLight.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\MaterialDesignColors.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\Newtonsoft.Json.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Buffers.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.IO.Pipelines.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Memory.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Numerics.Vectors.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Threading.Channels.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Threading.Tasks.Dataflow.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Windows.Interactivity.dll
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\Dawn.Guard.xml
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\GalaSoft.MvvmLight.pdb
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\GalaSoft.MvvmLight.xml
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\MaterialDesignColors.pdb
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\Newtonsoft.Json.xml
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Buffers.xml
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.IO.Pipelines.xml
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Memory.xml
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Numerics.Vectors.xml
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Threading.Channels.xml
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Threading.Tasks.Dataflow.xml
+D:\HUY\7.NET C SHARP\SecureApp\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\KeySecure.csproj.AssemblyReference.cache
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\KeySecure.csproj.SuggestedBindingRedirects.cache
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\MainWindow.g.cs
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Views\KeySecureWindow.g.cs
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\App.g.cs
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\KeySecure_MarkupCompile.cache
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\KeySecure_MarkupCompile.lref
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\App.baml
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\MainWindow.baml
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Views\KeySecureWindow.baml
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\KeySecure.g.resources
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\KeySecure.Properties.Resources.resources
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\KeySecure.csproj.GenerateResource.cache
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\KeySecure.csproj.CoreCompileInputs.cache
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\KeySecure.csproj.CopyComplete
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\KeySecure.exe
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\KeySecure.pdb
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Views\EncryptResultWindow.g.cs
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Views\EncryptResultWindow.baml
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Components\PasswordControl.g.cs
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Components\PasswordControl.baml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\KeySecure.exe.config
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\KeySecure.exe
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\KeySecure.pdb
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\CommonServiceLocator.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\Dawn.Guard.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\GalaSoft.MvvmLight.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\MaterialDesignColors.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\Newtonsoft.Json.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Buffers.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.IO.Pipelines.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Memory.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Numerics.Vectors.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Threading.Channels.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Threading.Tasks.Dataflow.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Windows.Interactivity.dll
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\Dawn.Guard.xml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\GalaSoft.MvvmLight.pdb
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\GalaSoft.MvvmLight.xml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\MaterialDesignColors.pdb
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\Newtonsoft.Json.xml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Buffers.xml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.IO.Pipelines.xml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Memory.xml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Numerics.Vectors.xml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Threading.Channels.xml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Threading.Tasks.Dataflow.xml
+D:\4.PERSONAL\5.CODING\KeySecure\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\Components\PasswordControl.g.cs
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\MainWindow.g.cs
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\Views\EncryptResultWindow.g.cs
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\Views\KeySecureWindow.g.cs
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\App.g.cs
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\KeySecure_MarkupCompile.cache
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\KeySecure_MarkupCompile.lref
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\App.baml
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\Components\PasswordControl.baml
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\MainWindow.baml
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\Views\EncryptResultWindow.baml
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\Views\KeySecureWindow.baml
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\KeySecure.g.resources
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\KeySecure.Properties.Resources.resources
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\KeySecure.csproj.GenerateResource.cache
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\KeySecure.csproj.CoreCompileInputs.cache
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\KeySecure.csproj.CopyComplete
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\KeySecure.exe
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\KeySecure.pdb
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\Views\DecryptResultWindow.g.cs
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\Views\DecryptResultWindow.baml
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Views\DecryptResultWindow.g.cs
+D:\HUY\7.NET C SHARP\SecureApp\obj\Debug\Views\DecryptResultWindow.baml
+D:\4.PERSONAL\5.CODING\KeySecure\obj\Debug\KeySecure.csproj.AssemblyReference.cache
